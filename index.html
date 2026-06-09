@@ -72,13 +72,12 @@
   .hero {
     position: relative;
     height: 400px;
-    background: linear-gradient(to right, rgba(0,0,0,0.75) 40%, rgba(0,0,0,0.3) 100%),
-                url('img/showroom-palmas.jpeg') center/cover no-repeat;
-    display: flex;
+  background: linear-gradient(to right, rgba(0,0,0,0.75) 40%, rgba(0,0,0,0.3) 100%),
+            url('img/showroom-palmas.jpeg') center/cover no-repeat;
     align-items: center;
     padding: 0 80px;
     overflow: hidden;
-}
+  }
   .hero-bg-cars {
     position: absolute;
     right: 0; top: 0; bottom: 0;
@@ -93,7 +92,7 @@
     max-width: 520px;
   }
   .hero-logo {
-    display: none;
+    display: flex;
     align-items: center;
     gap: 12px;
     margin-bottom: 20px;
@@ -480,6 +479,8 @@
 
 <!-- HERO -->
 <section class="hero">
+  <div class="hero-content">
+  </div>
   <!-- Overlay car image right side -->
   <div style="position:absolute;right:0;top:0;bottom:0;width:50%;overflow:hidden;">
     <img src="https://images.unsplash.com/photo-1571127236794-81c16713d73b?w=900&q=80"
