@@ -18,7 +18,616 @@
     justify-content: space-between;
     padding: 0 40px;
     height: 70px;
+    position: sticky;<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TPS Armoring - Showroom CDMX</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Open Sans', sans-serif; background: #f4f4f4; color: #222; }
+
+  /* HEADER */
+  header {
+    background: #111;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+    height: 70px;
     position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .logo-icon {
+    width: 48px;
+    height: 48px;
+  }
+
+  nav {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+  }
+  nav a {
+    color: #ccc;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  nav a:hover { color: #fff; }
+  nav a.active {
+    color: #fff;
+    border-bottom: 2px solid #e85d0a;
+    padding-bottom: 2px;
+  }
+  .btn-cotiza {
+    background: #e85d0a;
+    color: #fff !important;
+    padding: 10px 20px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    transition: background 0.2s !important;
+  }
+  .btn-cotiza:hover { background: #c94e07 !important; }
+  .btn-cotiza i { font-size: 14px; }
+
+  /* HERO */
+  .hero {
+    position: relative;
+    height: 400px;
+  background: linear-gradient(to right, rgba(0,0,0,0.75) 40%, rgba(0,0,0,0.3) 100%),
+            url('img/showroom-palmas.jpeg') center/cover no-repeat;
+    align-items: center;
+    padding: 0 80px;
+    overflow: hidden;
+  }
+  .hero-bg-cars {
+    position: absolute;
+    right: 0; top: 0; bottom: 0;
+    width: 55%;
+    background: url('https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?w=900&q=80') center/cover no-repeat;
+    mask-image: linear-gradient(to right, transparent, black 30%);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 30%);
+  }
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 520px;
+  }
+  .hero-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  .hero-logo .logo-svg {
+    width: 60px;
+    height: 60px;
+  }
+  .hero-eyebrow {
+    color: #ccc;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+  }
+  .hero h1 {
+    font-family: 'Montserrat', sans-serif;
+    color: #fff;
+    font-size: 42px;
+    font-weight: 800;
+    line-height: 1.1;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .hero h1 span {
+    color: #e85d0a;
+    display: block;
+  }
+  .hero p {
+    color: #ccc;
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 16px 0 28px;
+    max-width: 400px;
+  }
+  .hero-btns {
+    display: flex;
+    gap: 16px;
+  }
+  .btn-primary {
+    background: transparent;
+    border: 2px solid #fff;
+    color: #fff;
+    padding: 12px 24px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s;
+    letter-spacing: 0.5px;
+  }
+  .btn-primary:hover { background: #fff; color: #111; }
+  .btn-secondary {
+    background: transparent;
+    border: 2px solid #e85d0a;
+    color: #fff;
+    padding: 12px 24px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s;
+    letter-spacing: 0.5px;
+  }
+  .btn-secondary:hover { background: #e85d0a; }
+
+  /* WHATSAPP FLOAT */
+  .wa-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: #25d366;
+    color: #fff;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(37,211,102,0.5);
+    z-index: 999;
+    transition: transform 0.2s;
+  }
+  .wa-float:hover { transform: scale(1.1); }
+
+  /* MAIN SECTION */
+  .main-section {
+    display: grid;
+    grid-template-columns: 280px 1fr 280px;
+    gap: 0;
+    background: #fff;
+    border-top: 4px solid #e85d0a;
+  }
+
+  /* SHOWROOM INFO */
+  .showroom-info {
+    padding: 32px 28px;
+    border-right: 1px solid #e8e8e8;
+  }
+  .section-label {
+    color: #e85d0a;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 4px;
+    font-family: 'Montserrat', sans-serif;
+  }
+  .showroom-info h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 22px;
+    font-weight: 800;
+    color: #111;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    line-height: 1.2;
+  }
+  .address-block {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 14px;
+    align-items: flex-start;
+  }
+  .address-block i {
+    color: #e85d0a;
+    margin-top: 2px;
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+  .address-block p {
+    font-size: 13px;
+    color: #444;
+    line-height: 1.5;
+  }
+  .showroom-desc {
+    font-size: 13px;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 24px;
+    border-top: 1px solid #eee;
+    padding-top: 14px;
+  }
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    text-align: center;
+  }
+  .feature-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+  }
+  .feature-item .icon-circle {
+    width: 44px;
+    height: 44px;
+    border: 2px solid #e8e8e8;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #333;
+    font-size: 18px;
+  }
+  .feature-item span {
+    font-size: 10.5px;
+    color: #555;
+    font-weight: 600;
+    text-align: center;
+    line-height: 1.3;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  /* VEHICLES */
+  .vehicles-section {
+    padding: 32px 28px;
+    border-right: 1px solid #e8e8e8;
+  }
+  .vehicles-section h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: #111;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+  }
+  .vehicles-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    margin-bottom: 20px;
+  }
+  .vehicle-card {
+    border: 1px solid #e8e8e8;
+    border-radius: 4px;
+    overflow: hidden;
+    transition: box-shadow 0.2s;
+    cursor: pointer;
+  }
+  .vehicle-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.12); }
+  .vehicle-img {
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+    display: block;
+    background: #f0f0f0;
+  }
+  .vehicle-img-placeholder {
+    width: 100%;
+    height: 100px;
+    background: #1a1a1a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .vehicle-img-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.85);
+  }
+  .vehicle-info {
+    padding: 10px;
+  }
+  .vehicle-info h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    color: #111;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 2px;
+  }
+  .vehicle-info .badge {
+    display: inline-block;
+    background: #e85d0a;
+    color: #fff;
+    font-size: 9px;
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: 2px;
+    margin-bottom: 6px;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 0.5px;
+  }
+  .vehicle-info a {
+    display: block;
+    color: #e85d0a;
+    font-size: 11px;
+    font-weight: 600;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+  }
+  .vehicle-info a:hover { text-decoration: underline; }
+  .btn-ver-todos {
+    display: block;
+    width: 100%;
+    text-align: center;
+    border: 2px solid #e85d0a;
+    color: #e85d0a;
+    padding: 12px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 4px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    transition: all 0.2s;
+  }
+  .btn-ver-todos:hover { background: #e85d0a; color: #fff; }
+
+  /* MAP */
+  .map-section {
+    padding: 32px 28px;
+  }
+  .map-section h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: #111;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+  }
+  .map-address {
+    font-size: 12px;
+    color: #555;
+    margin-bottom: 12px;
+    line-height: 1.5;
+  }
+  .map-address strong {
+    display: block;
+    color: #222;
+    font-size: 13px;
+    margin-bottom: 2px;
+  }
+  .map-embed {
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 10px;
+  }
+  .map-embed iframe {
+    width: 100%;
+    height: 200px;
+    border: none;
+    display: block;
+  }
+  .map-link {
+    font-size: 12px;
+    color: #1a73e8;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .map-link:hover { text-decoration: underline; }
+
+  /* FOOTER */
+  footer {
+    background: #111;
+    padding: 24px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 3px solid #e85d0a;
+  }
+  footer p {
+    color: #888;
+    font-size: 12px;
+  }
+  .footer-links {
+    display: flex;
+    gap: 20px;
+  }
+  .footer-links a {
+    color: #888;
+    font-size: 12px;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: #e85d0a; }
+
+  /* SVG LOGO */
+  .tps-logo-svg {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <nav>
+    <a href="#" class="active">Inicio</a>
+    <a href="#">Show Room Palmas</a>
+    <a href="#">Vehículos Blindados</a>
+    <a href="#">Galería</a>
+    <a href="#">Contacto</a>
+    <a href="https://wa.me/528180391792" class="btn-cotiza">
+      <i class="fab fa-whatsapp"></i> Cotiza Ahora
+    </a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+  </div>
+  <!-- Overlay car image right side -->
+  <div style="position:absolute;right:0;top:0;bottom:0;width:50%;overflow:hidden;">
+    <img src="https://images.unsplash.com/photo-1571127236794-81c16713d73b?w=900&q=80"
+         style="width:100%;height:100%;object-fit:cover;mask-image:linear-gradient(to right,transparent,black 25%);-webkit-mask-image:linear-gradient(to right,transparent,black 25%);filter:brightness(0.7);" alt="Vehículos blindados TPS">
+  </div>
+</section>
+
+<!-- MAIN CONTENT -->
+<div class="main-section">
+
+  <!-- LEFT: Showroom Info -->
+  <div class="showroom-info">
+    <div class="section-label">Nuestra Sucursal</div>
+    <h2>Show Room Palmas</h2>
+    <div class="address-block">
+      <i class="fas fa-map-marker-alt"></i>
+      <p>Av. Paseo de las Palmas 810,<br>Lomas de Chapultepec, Miguel Hidalgo,<br>11000 Ciudad de México, CDMX.</p>
+    </div>
+    <p class="showroom-desc">Un espacio exclusivo donde podrás conocer nuestra gama de vehículos blindados, con la tecnología, seguridad y calidad que nos distingue.</p>
+    <div class="features-grid">
+      <div class="feature-item">
+        <div class="icon-circle"><i class="fas fa-shield-alt"></i></div>
+        <span>Máxima Seguridad</span>
+      </div>
+      <div class="feature-item">
+        <div class="icon-circle"><i class="fas fa-microchip"></i></div>
+        <span>Tecnología de Vanguardia</span>
+      </div>
+      <div class="feature-item">
+        <div class="icon-circle"><i class="fas fa-user-tie"></i></div>
+        <span>Atención Personalizada</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- CENTER: Featured Vehicles -->
+  <div class="vehicles-section">
+    <h2>Vehículos Destacados</h2>
+    <div class="vehicles-grid">
+      <!-- Toyota Land Cruiser -->
+      <div class="vehicle-card">
+        <div class="vehicle-img-placeholder">
+          <img src="https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?w=400&q=80" alt="Toyota Land Cruiser">
+        </div>
+        <div class="vehicle-info">
+          <h3>Toyota Land Cruiser</h3>
+          <span class="badge">Blindada</span><br>
+          <a href="#">Ver especificaciones →</a>
+        </div>
+      </div>
+      <!-- Suburban -->
+      <div class="vehicle-card">
+        <div class="vehicle-img-placeholder">
+          <img src="https://images.unsplash.com/photo-1609521263047-f8f205293f24?w=400&q=80" alt="Suburban">
+        </div>
+        <div class="vehicle-info">
+          <h3>Suburban</h3>
+          <span class="badge">Blindada</span><br>
+          <a href="#">Ver especificaciones →</a>
+        </div>
+      </div>
+      <!-- Chevrolet Tahoe -->
+      <div class="vehicle-card">
+        <div class="vehicle-img-placeholder">
+          <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=400&q=80" alt="Chevrolet Tahoe">
+        </div>
+        <div class="vehicle-info">
+          <h3>Chevrolet Tahoe</h3>
+          <span class="badge">Blindada</span><br>
+          <a href="#">Ver especificaciones →</a>
+        </div>
+      </div>
+      <!-- Toyota Hilux -->
+      <div class="vehicle-card">
+        <div class="vehicle-img-placeholder">
+          <img src="https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=400&q=80" alt="Toyota Hilux">
+        </div>
+        <div class="vehicle-info">
+          <h3>Toyota Hilux</h3>
+          <span class="badge">Blindada</span><br>
+          <a href="#">Ver especificaciones →</a>
+        </div>
+      </div>
+    </div>
+    <a href="#" class="btn-ver-todos">Ver Todos los Vehículos</a>
+  </div>
+
+  <!-- RIGHT: Map / Location -->
+  <div class="map-section">
+    <div class="section-label" style="color:#e85d0a;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:4px;font-family:'Montserrat',sans-serif;">Ubicación</div>
+    <div class="map-address">
+      <strong>Av. Paseo de las Palmas 810</strong>
+      Av. Paseo de las Palmas 810, Lomas de Chapultepec I Secc, Miguel Hidalgo, 11000 Ciudad de México, CDMX
+    </div>
+    <div class="map-embed">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3763.3!2d-99.2171!3d19.4284!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d201f70e3c7b01%3A0x7d57cc7a0e4c9c3a!2sAv.+Paseo+de+las+Palmas+810!5e0!3m2!1ses!2smx!4v1"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+    <a href="https://maps.google.com/?q=Paseo+de+las+Palmas+810+CDMX" target="_blank" class="map-link">Ver mapa más grande →</a>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2024 TPS Armoring. Todos los derechos reservados.</p>
+  <div class="footer-links">
+    <a href="#">Inicio</a>
+    <a href="#">Show Room</a>
+    <a href="#">Vehículos Blindados</a>
+    <a href="#">Galería</a>
+    <a href="#">Contacto</a>
+  </div>
+</footer>
+
+<!-- WhatsApp Float -->
+<a href="https://wa.me/5213391234567" class="wa-float" target="_blank" aria-label="WhatsApp">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+</body>
+</html>
+
     top: 0;
     z-index: 100;
   }
