@@ -36,15 +36,15 @@ header{
   height:78px;
   width:auto;
   display:block;
-  transform:translateY(0);
+  opacity:0;
+  transform:translateY(-14px) scale(0.96);
+  animation:logoIntro 0.9s ease forwards;
 }
-.logo-wrap.logo-clicked img{
-  animation:logoClick 0.45s ease;
-}
-@keyframes logoClick{
-  0%{transform:translateY(0) scale(1);}
-  45%{transform:translateY(-5px) scale(1.04);}
-  100%{transform:translateY(0) scale(1);}
+@keyframes logoIntro{
+  to{
+    opacity:1;
+    transform:translateY(0) scale(1);
+  }
 }
 nav{display:flex;align-items:center;gap:26px;}
 nav a{
@@ -366,7 +366,7 @@ footer{background:var(--negro);padding:48px 48px 24px;border-top:3px solid var(-
 <!-- HEADER -->
 <header>
   <a href="#inicio" class="logo-wrap" aria-label="TPS Armoring inicio">
-    <img src="img/ChatGPT Image Jun 10, 2026, 01_16_38 PM.png" alt="TPS Armoring">
+    <img src="img/logo-tps-armoring.png" alt="TPS Armoring">
   </a>
   <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
   <nav id="nav">
@@ -713,12 +713,6 @@ function cerrarFuera(e) {
 document.addEventListener("keydown", e => { if(e.key==="Escape") cerrar(); });
 
 // ── Hamburger ────────────────────────────────────────────
-const logoWrap = document.querySelector(".logo-wrap");
-logoWrap?.addEventListener("click", () => {
-  logoWrap.classList.remove("logo-clicked");
-  void logoWrap.offsetWidth;
-  logoWrap.classList.add("logo-clicked");
-});
 const hbg = document.getElementById("hamburger");
 const navEl = document.getElementById("nav");
 hbg.addEventListener("click", () => {
