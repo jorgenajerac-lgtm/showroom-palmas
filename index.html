@@ -37,13 +37,26 @@ header{
   width:auto;
   display:block;
   opacity:0;
-  transform:translateY(-14px) scale(0.96);
+  transform:translateY(-18px) scale(0.94);
+  -webkit-transform:translateY(-18px) scale(0.94);
+  will-change:opacity,transform;
+}
+.logo-wrap.logo-animate img{
   animation:logoIntro 0.9s ease forwards;
+  -webkit-animation:logoIntro 0.9s ease forwards;
 }
 @keyframes logoIntro{
   to{
     opacity:1;
     transform:translateY(0) scale(1);
+    -webkit-transform:translateY(0) scale(1);
+  }
+}
+@-webkit-keyframes logoIntro{
+  to{
+    opacity:1;
+    transform:translateY(0) scale(1);
+    -webkit-transform:translateY(0) scale(1);
   }
 }
 nav{display:flex;align-items:center;gap:26px;}
