@@ -359,6 +359,139 @@ footer{background:var(--negro);padding:48px 48px 24px;border-top:3px solid var(-
 .f-brand h4 {
     color: white !important;
 }
+/* ===== ESTILO LUJO TPS ===== */
+
+:root{
+  --naranja:#b9a16a;
+  --naranja-dark:#8f7a4d;
+  --negro:#050505;
+  --gris-oscuro:#0b0b0b;
+  --gris-claro:#f4f1ea;
+  --texto:#171717;
+  --texto-suave:#78746d;
+  --oro:#b9a16a;
+}
+
+body{
+  background:#050505;
+  color:#eee;
+}
+
+header{
+  background:rgba(0,0,0,0.94);
+  height:96px;
+  border-bottom:1px solid rgba(185,161,106,0.35);
+}
+
+.logo-wrap img{
+  height:76px;
+  max-width:300px;
+}
+
+nav a{
+  color:#d8d2c4;
+  font-size:10px;
+  font-weight:500;
+  letter-spacing:2.4px;
+}
+
+nav a:hover,
+nav a.active{
+  color:#fff;
+}
+
+nav a.active{
+  border-bottom:1px solid var(--oro);
+}
+
+.btn-cotiza,
+.btn-hero-p,
+.btn-strip,
+.btn-card{
+  background:transparent;
+  border:1px solid var(--oro);
+  color:#fff !important;
+  border-radius:0;
+  letter-spacing:2px;
+}
+
+.btn-cotiza:hover,
+.btn-hero-p:hover,
+.btn-strip:hover,
+.btn-card:hover{
+  background:var(--oro) !important;
+  color:#050505 !important;
+}
+
+.hero{
+  min-height:680px;
+  padding:110px 80px;
+}
+
+.hero-badge{
+  background:transparent;
+  border:0;
+  border-left:1px solid var(--oro);
+  border-radius:0;
+  color:var(--oro);
+  padding:4px 0 4px 14px;
+  letter-spacing:3px;
+}
+
+.hero h1{
+  font-size:58px;
+  line-height:1.08;
+}
+
+.hero h1 span,
+.sec-title span,
+.strip-content h2 span,
+.cta h2 span{
+  color:var(--oro);
+}
+
+.hero-sub{
+  color:#c9c2b4;
+}
+
+footer{
+  border-top:1px solid rgba(185,161,106,.25);
+}
+
+@media(max-width:768px){
+  header{
+    height:86px;
+  }
+
+  .logo-wrap img{
+    height:62px;
+    max-width:220px;
+  }
+
+  nav{
+    top:86px;
+  }
+
+  .hero{
+    padding:56px 24px;
+    min-height:560px;
+  }
+
+  .hero h1{
+    font-size:34px;
+  }
+}
+
+@media(max-width:480px){
+  .logo-wrap img{
+    height:54px;
+    max-width:190px;
+  }
+
+  .hero h1{
+    font-size:28px;
+  }
+}
 </style>
 </head>
 <body>
@@ -366,8 +499,7 @@ footer{background:var(--negro);padding:48px 48px 24px;border-top:3px solid var(-
 <!-- HEADER -->
 <header>
   <a href="#inicio" class="logo-wrap" aria-label="TPS Armoring inicio">
-    <img src="img/logo-tps-armoring.png" alt="TPS Armoring">
-  </a>
+<img src="img/logo-tps-armoring.png" alt="TPS Armoring">  </a>
   <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
   <nav id="nav">
     <a href="#inicio" class="active">Inicio</a>
