@@ -22,13 +22,30 @@ body{font-family:'Open Sans',sans-serif;background:#fff;color:var(--texto);overf
 
 /* ── HEADER ── */
 header{
-  background:var(--negro);
+  background:#000;
   display:flex;align-items:center;justify-content:space-between;
-  padding:0 48px;height:68px;
+  padding:0 48px;height:92px;
   position:sticky;top:0;z-index:1000;
   border-bottom:3px solid var(--naranja);
 }
-.logo-wrap img{height:44px;width:auto;display:block;}
+.logo-wrap{
+  display:flex;
+  align-items:center;
+}
+.logo-wrap img{
+  height:78px;
+  width:auto;
+  display:block;
+  opacity:0;
+  transform:translateY(-14px) scale(0.96);
+  animation:logoIntro 0.9s ease forwards;
+}
+@keyframes logoIntro{
+  to{
+    opacity:1;
+    transform:translateY(0) scale(1);
+  }
+}
 nav{display:flex;align-items:center;gap:26px;}
 nav a{
   color:#bbb;text-decoration:none;
@@ -297,11 +314,11 @@ footer{background:var(--negro);padding:48px 48px 24px;border-top:3px solid var(-
   .footer-grid{grid-template-columns:1fr 1fr;gap:28px;}
 }
 @media(max-width:768px){
-  header{padding:0 20px;height:62px;position:relative;}
+  header{padding:0 20px;height:82px;position:relative;}
   .hamburger{display:flex;}
   nav{
     display:none;flex-direction:column;align-items:flex-start;gap:0;
-    position:absolute;top:62px;left:0;right:0;
+    position:absolute;top:82px;left:0;right:0;
     background:var(--negro);padding:10px 0;z-index:200;
     border-top:2px solid var(--naranja);box-shadow:0 8px 24px rgba(0,0,0,0.5);
   }
@@ -348,7 +365,8 @@ footer{background:var(--negro);padding:48px 48px 24px;border-top:3px solid var(-
 
 <!-- HEADER -->
 <header>
-  <a href="#inicio" class="logo-wrap">
+  <a href="#inicio" class="logo-wrap" aria-label="TPS Armoring inicio">
+    <img src="img/logo-tps-armoring.png" alt="TPS Armoring">
   </a>
   <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
   <nav id="nav">
