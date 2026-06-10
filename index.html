@@ -160,7 +160,6 @@ nav a.active{color:#fff;border-bottom:2px solid var(--naranja);padding-bottom:2p
 .cbadge.blindado{background:var(--naranja);}
 .cbadge.exclusivo{background:#1a1a8c;}
 .cbadge.clasico{background:#2c6e49;}
-.fav-btn{
   position:absolute;top:12px;right:12px;
   background:rgba(0,0,0,0.5);border:none;color:#fff;
   width:32px;height:32px;border-radius:50%;
@@ -386,10 +385,10 @@ footer{background:var(--negro);padding:48px 48px 24px;border-top:3px solid var(-
 <!-- TABS -->
 <div class="cats-wrap">
   <div class="cats-grid">
-    <button class="cat-tab active" onclick="filtrar('todos',this)"><i class="fas fa-th"></i> Todos</button>
-    <button class="cat-tab" onclick="filtrar('blindado',this)"><i class="fas fa-shield-alt"></i> Blindados</button>
-    <button class="cat-tab" onclick="filtrar('exclusivo',this)"><i class="fas fa-star"></i> Exclusivos</button>
-    <button class="cat-tab" onclick="filtrar('clasico',this)"><i class="fas fa-history"></i> Clásicos</button>
+    <button class="cat-tab active" onclick="filtrar('todos',this)"><i ></i> Todos</button>
+    <button class="cat-tab" onclick="filtrar('blindado',this)"><i "></i> Blindados</button>
+    <button class="cat-tab" onclick="filtrar('exclusivo',this)"><i></i> Exclusivos</button>
+    <button class="cat-tab" onclick="filtrar('clasico',this)"><i></i> Clásicos</button>
   </div>
 </div>
 
@@ -548,12 +547,12 @@ const INVENTARIO = [
     titulo: "Ford Mustang Fastback",
     cat: "clasico",
     anio: "1968",
-    km: "Restaurado",
+    km: "Nuevo",
     precio: "$3,800,000",
     badge: "Clásico",
     specs: [
       {l:"Año", v:"1968"},
-      {l:"Estado", v:"Restaurado"},
+      {l:"Estado", v:"Nuevo"},
       {l:"Motor", v:"V8 390 GT"},
       {l:"Transmisión", v:"Manual 4 vel"},
       {l:"Color", v:"Verde Highland"},
@@ -629,7 +628,7 @@ function renderCards() {
       <div class="car-img-wrap">
         <img src="${c.img}" alt="${c.titulo}" loading="lazy">
         <span class="cbadge ${c.cat}">${badgeLabel(c.cat)}</span>
-        <button class="fav-btn" onclick="fav(event,this)"><i class="far fa-heart"></i></button>
+        <button class="fav-btn" onclick="fav(event,this)"><i ></i></button>
       </div>
       <div class="car-info">
         <h3>${c.titulo}</h3>
