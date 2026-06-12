@@ -9,7 +9,7 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
 :root{
-  --naranja:#c58b2a;
+  --naranja: #D66A11;
   --naranja-dark:#a87018;
   --negro:#050505;
   --gris-oscuro:#0b0b0b;
@@ -279,10 +279,15 @@ footer{background:var(--negro);padding:48px 48px 24px;border-top:3px solid var(-
 .f-col a:hover{color:var(--naranja);}
 .footer-bottom{border-top:1px solid #1a1a1a;padding-top:24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
 .footer-bottom p{color:#444;font-size:12px;}
-.socials{display:flex;gap:10px;}
-.socials a{width:34px;height:34px;border-radius:50%;background:#1a1a1a;color:#666;display:flex;align-items:center;justify-content:center;font-size:14px;text-decoration:none;transition:all 0.2s;}
-.socials a:hover{background:var(--naranja);color:#fff;}
-
+.socials{
+    display:flex;
+    gap:10px;
+    margin-right:100px;
+}
+.socials a,
+.socials a:visited{
+    color:#666 !important;
+}
 /* ── MODAL ── */
 .overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.88);z-index:2000;align-items:center;justify-content:center;padding:16px;}
 .overlay.open{display:flex;}
@@ -362,16 +367,6 @@ footer{background:var(--negro);padding:48px 48px 24px;border-top:3px solid var(-
 }
 /* ===== ESTILO LUJO TPS ===== */
 
-:root{
---naranja:#c58b2a;
---naranja-dark:#a87018;
-  --negro:#050505;
-  --gris-oscuro:#0b0b0b;
-  --gris-claro:#f4f1ea;
-  --texto:#171717;
-  --texto-suave:#78746d;
-  --oro:#b9a16a;
-}
 
 body{
   background:#050505;
@@ -430,13 +425,13 @@ nav a.active{
 }
 
 .hero-badge{
-  background:transparent;
-  border:0;
-  border-left:1px solid var(--oro);
-  border-radius:0;
-  color:var(--oro);
-  padding:4px 0 4px 14px;
-  letter-spacing:3px;
+    background: transparent;
+    border: 0;
+    border-left: 1px solid #D66A11;
+    border-radius: 0;
+    color: #D66A11 !important;
+    padding: 4px 0 4px 14px;
+    letter-spacing: 3px;
 }
 
 .hero h1{
@@ -448,8 +443,9 @@ nav a.active{
 .sec-title span,
 .strip-content h2 span,
 .cta h2 span{
-    color:#D66A11;
+color:#D66A11;
 }
+
 .hero-sub{
   color:#c9c2b4;
 }
@@ -506,7 +502,7 @@ footer{
     <a href="#inventario">Inventario</a>
     <a href="#showroom">Showroom</a>
     <a href="#nosotros">Nosotros</a>
-    <a href="#ubicacion">Contacto</a>
+    <a href="#ubicacion">Ubicacion</a>
     <a href="https://wa.me/5215574495611" class="btn-cotiza"><i class="fab fa-whatsapp"></i> Cotiza Ahora</a>
   </nav>
 </header>
@@ -611,14 +607,14 @@ footer{
     <div class="loc-item"><i class="fas fa-map-marker-alt"></i><div><strong>Dirección</strong><span>Av. Paseo de las Palmas 810, Lomas de Chapultepec,<br>Miguel Hidalgo, 11000 CDMX</span></div></div>
     <div class="loc-item"><i class="fas fa-clock"></i><div><strong>Horario</strong><span>Lun–Vie: 9:00–19:00 hrs · Sáb: 9:00–14:00 hrs</span></div></div>
     <div class="loc-item"><i class="fab fa-whatsapp"></i><div><strong>WhatsApp</strong><span>55 7449 5611</span></div></div>
-    <div class="loc-item"><i class="fas fa-envelope"></i><div><strong>Email</strong><span>ventas@tpsarmoring.com</span></div></div>
+    <div class="loc-item"><i class="fas fa-envelope"></i><div><strong>Email</strong><span>palmas@tps.com.mx</span></div></div>
   </div>
   <div class="map-wrap">
     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3763.08!2d-99.2171!3d19.4284!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d201f70e3c7b01%3A0x7d57cc7a0e4c9c3a!2sAv.+Paseo+de+las+Palmas+810!5e0!3m2!1ses!2smx!4v1" allowfullscreen="" loading="lazy"></iframe>
   </div>
 </section>
 
-<!-- FOOTER -->
+<!-- REDES SOCIALES -->
 <footer>
   <div class="footer-grid">
     <div class="f-brand">
@@ -632,11 +628,16 @@ footer{
   <div class="footer-bottom">
     <p>© 2025 TPS Armoring. Todos los derechos reservados.</p>
     <div class="socials">
-      <a href="#"><i class="fab fa-instagram"></i></a>
-      <a href="#"><i class="fab fa-facebook-f"></i></a>
-      <a href="#"><i class="fab fa-youtube"></i></a>
-      <a href="https://wa.me/5215574495611"><i class="fab fa-whatsapp"></i></a>
-    </div>
+      <a href="https://www.instagram.com/tpsarmoringshowroom/"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.facebook.com/tps.armoring"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.linkedin.com/company/tps-armoring/posts/?feedView=all" target="_blank">
+      <i class="fab fa-linkedin-in"></i>
+</a>
+
+<a href="https://x.com/TPS_Oficial" target="_blank">
+    <i class="fab fa-x-twitter"></i>
+</a>
+      <a href="https://www.youtube.com/@tpsarmoring4344"><i class="fab fa-youtube"></i></a>
   </div>
 </footer>
 
