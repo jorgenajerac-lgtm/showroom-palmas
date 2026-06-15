@@ -362,6 +362,7 @@ footer{background:var(--negro);padding:48px 48px 24px;border-top:1px solid rgba(
   .admin-form-grid{grid-template-columns:1fr;}
 }
 @media(max-width:768px){
+  .cars-grid .car-card:nth-child(4){display:none;}
   header{padding:0 20px;height:82px;}
   .hamburger{display:flex;}
   nav{display:none;flex-direction:column;align-items:flex-start;gap:0;position:absolute;top:82px;left:0;right:0;background:var(--negro);padding:10px 0;z-index:200;border-top:1px solid rgba(185,161,106,0.25);box-shadow:0 8px 24px rgba(0,0,0,0.5);}
@@ -375,7 +376,7 @@ footer{background:var(--negro);padding:48px 48px 24px;border-top:1px solid rgba(
   .hero-stat .num{font-size:22px;}
   .cats-wrap{padding:0 16px;}
   .inv-section{padding:40px 20px;}
-  .cars-grid{grid-template-columns:1fr 1fr;gap:12px;}
+  .cars-grid{grid-template-columns:repeat(3,1fr);gap:12px;}
   .strip{grid-template-columns:1fr;}
   .strip-img{height:220px;}
   .strip-content{padding:36px 24px;}
@@ -462,7 +463,7 @@ footer{background:var(--negro);padding:48px 48px 24px;border-top:1px solid rgba(
   <div class="filters-bar">
     <div class="search-wrap">
       <i class="fas fa-search"></i>
-      <input type="text" placeholder="Buscar veh&iacute;culo..." oninput="buscar(this.value)" id="search-input">
+      <input type="text" placeholder="Buscar veh&iacute;culo..." oninput="buscarRedirigir(this.value)" id="search-input">
     </div>
   </div>
   <div class="cars-grid" id="cars-grid"></div>
@@ -807,6 +808,11 @@ function filtrar(cat, btn) {
   renderCards();
 }
 
+function buscarRedirigir(q) {
+  if(q.trim().length > 0){
+    window.location.href = 'inventario.html?q=' + encodeURIComponent(q.trim());
+  }
+}
 function buscar(q) {
   busquedaActual = q;
   renderCards();
