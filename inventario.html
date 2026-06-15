@@ -281,6 +281,14 @@ function cerrarFuera(e){
 
 document.addEventListener('keydown', e => { if(e.key === 'Escape') cerrar(); });
 
+// Leer búsqueda desde URL (?q=...)
+const urlParams = new URLSearchParams(window.location.search);
+const qParam = urlParams.get('q');
+if(qParam){
+  busquedaActual = qParam;
+  const si = document.getElementById('search-input');
+  if(si) si.value = qParam;
+}
 renderizar();
 </script>
 </body>
