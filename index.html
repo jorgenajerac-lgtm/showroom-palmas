@@ -16,9 +16,9 @@
   --gris-claro:#f4f1ea;
   --texto:#eee;
   --texto-suave:#c9c2b4;
-  --oro:#b9a16a;
+  --oro:#D66A11;
 }
-html{scroll-behavior:smooth;}
+html{scroll-behavior:smooth;scroll-padding-top:92px;}
 body{font-family:'Open Sans',sans-serif;background:#050505;color:var(--texto);overflow-x:hidden;}
 
 /* HEADER */
@@ -27,7 +27,7 @@ header{
   display:flex;align-items:center;justify-content:space-between;
   padding:0 48px;height:92px;
   position:sticky;top:0;z-index:1000;
-  border-bottom:1px solid rgba(185,161,106,0.35);
+  border-bottom:1px solid rgba(214,106,17,0.35);
 }
 .logo-wrap{display:flex;align-items:center;}
 .logo-wrap img{height:76px;width:auto;max-width:300px;display:block;opacity:0;transform:translateY(-14px) scale(0.96);animation:logoIntro 0.9s ease forwards;}
@@ -35,9 +35,9 @@ header{
 nav{display:flex;align-items:center;gap:26px;}
 nav a{color:#d8d2c4;text-decoration:none;font-family:'Montserrat',sans-serif;font-size:10px;font-weight:500;letter-spacing:2.4px;text-transform:uppercase;transition:color 0.2s;}
 nav a:hover{color:#fff;}
-nav a.active{color:#fff;border-bottom:1px solid var(--oro);padding-bottom:2px;}
-.btn-cotiza{background:var(--negro);border:1px solid var(--oro);color:#fff!important;padding:10px 20px;border-radius:0;display:flex;align-items:center;gap:8px;font-size:10px!important;font-weight:700!important;text-decoration:none;transition:all 0.2s;letter-spacing:2px;}
-.btn-cotiza:hover{background:var(--oro)!important;color:#050505!important;}
+nav a.active{color:#fff;border-bottom:1px solid var(--naranja);padding-bottom:2px;}
+.btn-cotiza{background:var(--negro);border:1px solid var(--naranja);color:#fff!important;padding:10px 20px;border-radius:0;display:flex;align-items:center;gap:8px;font-size:10px!important;font-weight:700!important;text-decoration:none;transition:all 0.2s;letter-spacing:2px;}
+.btn-cotiza:hover{background:var(--naranja)!important;color:#050505!important;}
 .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
 .hamburger span{display:block;width:24px;height:2px;background:#fff;border-radius:2px;transition:all 0.3s;}
 .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
@@ -58,8 +58,8 @@ nav a.active{color:#fff;border-bottom:1px solid var(--oro);padding-bottom:2px;}
 .hero h1 span{color:#D66A11;}
 .hero-sub{color:#c9c2b4;font-size:15px;line-height:1.7;margin:16px 0 36px;max-width:440px;}
 .hero-btns{display:flex;gap:14px;flex-wrap:wrap;}
-.btn-hero-p{background:var(--negro);border:1px solid var(--oro);color:#fff;padding:14px 28px;border-radius:0;font-family:'Montserrat',sans-serif;font-size:13px;font-weight:700;text-decoration:none;display:flex;align-items:center;gap:10px;transition:all 0.2s;letter-spacing:2px;}
-.btn-hero-p:hover{background:var(--oro);color:#050505;transform:translateY(-1px);}
+.btn-hero-p{background:var(--naranja);border:1px solid var(--naranja);color:#fff;padding:14px 28px;border-radius:0;font-family:'Montserrat',sans-serif;font-size:13px;font-weight:700;text-decoration:none;display:flex;align-items:center;gap:10px;transition:all 0.2s;letter-spacing:2px;}
+.btn-hero-p:hover{background:var(--naranja-dark);border-color:var(--naranja-dark);color:#fff;transform:translateY(-1px);}
 .btn-hero-s{background:transparent;border:1px solid rgba(255,255,255,0.35);color:#fff;padding:14px 28px;border-radius:0;font-family:'Montserrat',sans-serif;font-size:13px;font-weight:700;text-decoration:none;display:flex;align-items:center;gap:10px;transition:all 0.2s;letter-spacing:2px;}
 .btn-hero-s:hover{border-color:#fff;}
 .hero-stats{display:flex;gap:36px;margin-top:48px;padding-top:28px;border-top:1px solid rgba(255,255,255,0.1);}
@@ -71,11 +71,11 @@ nav a.active{color:#fff;border-bottom:1px solid var(--oro);padding-bottom:2px;}
 .cats-grid{display:flex;border-bottom:1px solid #1a1a1a;min-width:500px;}
 .cat-tab{flex:1;padding:18px 20px;display:flex;align-items:center;gap:10px;color:#888;cursor:pointer;transition:all 0.2s;border:none;border-bottom:2px solid transparent;background:none;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:600;letter-spacing:0.5px;text-transform:uppercase;white-space:nowrap;}
 .cat-tab:hover{color:#fff;}
-.cat-tab.active{color:#fff;border-bottom-color:var(--oro);}
+.cat-tab.active{color:#fff;border-bottom-color:var(--naranja);}
 .cat-tab i{font-size:16px;color:var(--naranja);}
 
 /* INVENTARIO */
-.inv-section{background:#f5f0e8;padding:60px 48px;}
+.inv-section{background:#faf7f2;padding:60px 48px;}
 .sec-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px;flex-wrap:wrap;gap:12px;}
 .sec-title{font-family:'Montserrat',sans-serif;font-size:26px;font-weight:800;color:#1a1510;}
 .sec-title span{color:#D66A11;}
@@ -83,10 +83,10 @@ nav a.active{color:#fff;border-bottom:1px solid var(--oro);padding-bottom:2px;}
 .search-wrap{flex:1;min-width:220px;max-width:320px;position:relative;}
 .search-wrap i{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:#999;font-size:13px;}
 .search-wrap input{width:100%;padding:9px 16px 9px 38px;border:1px solid #ddd6c8;background:#fff;color:#1a1510;border-radius:0;font-size:13px;outline:none;font-family:'Open Sans',sans-serif;transition:border 0.2s;}
-.search-wrap input:focus{border-color:var(--oro);}
+.search-wrap input:focus{border-color:var(--naranja);}
 .search-wrap input::placeholder{color:#aaa;}
 .f-btn{background:#fff;border:1px solid #ddd6c8;color:#555;padding:8px 16px;border-radius:0;font-family:'Montserrat',sans-serif;font-size:11px;font-weight:600;cursor:pointer;transition:all 0.2s;display:flex;align-items:center;gap:6px;white-space:nowrap;letter-spacing:1px;}
-.f-btn:hover,.f-btn.active{background:var(--oro);color:#050505;border-color:var(--oro);}
+.f-btn:hover,.f-btn.active{background:var(--naranja);color:#050505;border-color:var(--naranja);}
 
 /* GRID CARDS */
 .cars-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
@@ -100,7 +100,7 @@ nav a.active{color:#fff;border-bottom:1px solid var(--oro);padding-bottom:2px;}
 .cbadge.exclusivo{background:#1a1a8c;}
 .cbadge.clasico{background:#2c6e49;}
 .fav-btn{position:absolute;top:12px;right:12px;background:rgba(255,255,255,0.85);border:1px solid rgba(185,161,106,0.4);color:#555;width:32px;height:32px;border-radius:0;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all 0.2s;font-size:14px;}
-.fav-btn:hover,.fav-btn.on{background:var(--oro);border-color:var(--oro);color:#050505;}
+.fav-btn:hover,.fav-btn.on{background:var(--naranja);border-color:var(--naranja);color:#050505;}
 .car-info{padding:16px;}
 .car-info h3{font-family:'Montserrat',sans-serif;font-size:14px;font-weight:700;color:#1a1510;margin-bottom:4px;}
 .car-meta{color:#999;font-size:11px;margin-bottom:10px;letter-spacing:0.5px;}
@@ -110,8 +110,8 @@ nav a.active{color:#fff;border-bottom:1px solid var(--oro);padding-bottom:2px;}
 .stag{background:#f0ebe2;color:#777;font-size:10px;font-weight:600;padding:3px 8px;border-radius:0;font-family:'Montserrat',sans-serif;border:1px solid #e0d8cc;}
 .car-price{font-family:'Montserrat',sans-serif;font-size:18px;font-weight:800;color:#1a1510;margin-bottom:12px;}
 .car-price small{font-size:11px;color:#999;font-weight:400;margin-left:4px;}
-.btn-card{display:block;width:100%;text-align:center;background:#1a1510;color:#fff;padding:10px;border:1px solid var(--oro);font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:2px;transition:all 0.2s;cursor:pointer;border-radius:0;}
-.btn-card:hover{background:var(--oro);color:#050505;}
+.btn-card{display:block;width:100%;text-align:center;background:#1a1510;color:#fff;padding:10px;border:1px solid var(--naranja);font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:2px;transition:all 0.2s;cursor:pointer;border-radius:0;}
+.btn-card:hover{background:var(--naranja);color:#050505;}
 .no-results{grid-column:1/-1;text-align:center;padding:60px 20px;color:#999;font-family:'Montserrat',sans-serif;}
 .no-results i{font-size:40px;color:#ddd;display:block;margin-bottom:12px;}
 
@@ -129,11 +129,11 @@ nav a.active{color:#fff;border-bottom:1px solid var(--oro);padding-bottom:2px;}
 .strip-feat{display:flex;align-items:center;gap:12px;}
 .strip-feat i{color:var(--naranja);font-size:15px;width:20px;flex-shrink:0;}
 .strip-feat span{color:#ccc;font-size:13px;}
-.btn-strip{display:inline-flex;align-items:center;gap:10px;background:var(--negro);border:1px solid var(--oro);color:#fff;padding:14px 28px;border-radius:0;font-family:'Montserrat',sans-serif;font-size:13px;font-weight:700;text-decoration:none;width:fit-content;transition:all 0.2s;letter-spacing:2px;}
-.btn-strip:hover{background:var(--oro);color:#050505;}
+.btn-strip{display:inline-flex;align-items:center;gap:10px;background:var(--negro);border:1px solid var(--naranja);color:#fff;padding:14px 28px;border-radius:0;font-family:'Montserrat',sans-serif;font-size:13px;font-weight:700;text-decoration:none;width:fit-content;transition:all 0.2s;letter-spacing:2px;}
+.btn-strip:hover{background:var(--naranja);color:#050505;}
 
 /* WHY */
-.why{padding:80px 48px;background:#f5f0e8;}
+.why{padding:80px 48px;background:#faf7f2;}
 .why-hdr{text-align:center;margin-bottom:48px;}
 .why-hdr h2{font-family:'Montserrat',sans-serif;font-size:28px;font-weight:800;color:#1a1510;margin-bottom:8px;}
 .why-hdr h2 span{color:#D66A11;}
@@ -158,7 +158,7 @@ nav a.active{color:#fff;border-bottom:1px solid var(--oro);padding-bottom:2px;}
 .btn-tel:hover{border-color:#fff;}
 
 /* UBICACION */
-.loc-section{display:grid;grid-template-columns:1fr 1fr;background:#f5f0e8;border-top:1px solid #e8e2d8;}
+.loc-section{display:grid;grid-template-columns:1fr 1fr;background:#faf7f2;border-top:1px solid #e8e2d8;}
 .loc-info{padding:60px 52px;display:flex;flex-direction:column;justify-content:center;}
 .loc-info h2{font-family:'Montserrat',sans-serif;font-size:28px;font-weight:800;color:#1a1510;margin-bottom:6px;text-transform:uppercase;}
 .loc-info h2 span{color:#D66A11;}
@@ -176,12 +176,12 @@ footer{background:var(--negro);padding:48px 48px 24px;border-top:1px solid rgba(
 .f-brand p{color:#444;font-size:13px;line-height:1.7;max-width:240px;margin-top:14px;}
 .f-col h4{font-family:'Montserrat',sans-serif;color:#fff;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:16px;}
 .f-col a{display:block;color:#444;font-size:13px;text-decoration:none;margin-bottom:10px;transition:color 0.2s;}
-.f-col a:hover{color:var(--oro);}
+.f-col a:hover{color:var(--naranja);}
 .footer-bottom{border-top:1px solid #1a1a1a;padding-top:24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
 .footer-bottom p{color:#333;font-size:12px;}
 .socials{display:flex;gap:10px;margin-right:100px;}
 .socials a,.socials a:visited{color:#444!important;transition:color 0.2s;}
-.socials a:hover{color:var(--oro)!important;}
+.socials a:hover{color:var(--naranja)!important;}
 
 /* MODAL PREMIUM - ESTILO ROLLS-ROYCE / MERCEDES */
 .overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.92);z-index:2000;align-items:center;justify-content:center;padding:20px;}
@@ -219,11 +219,11 @@ footer{background:var(--negro);padding:48px 48px 24px;border-top:1px solid rgba(
   display:flex;align-items:center;justify-content:center;
   z-index:10;transition:all 0.2s;
 }
-.modal-close:hover{background:var(--oro);border-color:var(--oro);color:#050505;}
+.modal-close:hover{background:var(--naranja);border-color:var(--naranja);color:#050505;}
 .modal-eyebrow{
   font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;
   letter-spacing:3px;text-transform:uppercase;
-  color:var(--oro);margin-bottom:10px;
+  color:var(--naranja);margin-bottom:10px;
 }
 .modal-title{
   font-family:'Montserrat',sans-serif;font-size:24px;font-weight:900;
@@ -238,7 +238,7 @@ footer{background:var(--negro);padding:48px 48px 24px;border-top:1px solid rgba(
 .modal-price-block{margin-bottom:24px;}
 .modal-price-label{font-family:'Montserrat',sans-serif;font-size:9px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#555;margin-bottom:6px;}
 .modal-price{font-family:'Montserrat',sans-serif;font-size:30px;font-weight:900;color:#fff;line-height:1;}
-.modal-price small{font-size:13px;color:var(--oro);font-weight:600;margin-left:6px;letter-spacing:2px;}
+.modal-price small{font-size:13px;color:var(--naranja);font-weight:600;margin-left:6px;letter-spacing:2px;}
 .modal-divider{border:none;border-top:1px solid #1a1a1a;margin:0 0 24px 0;}
 .modal-specs-title{font-family:'Montserrat',sans-serif;font-size:9px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#555;margin-bottom:14px;}
 .modal-specs{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:28px;}
@@ -271,13 +271,13 @@ footer{background:var(--negro);padding:48px 48px 24px;border-top:1px solid rgba(
 /* PANEL ADMIN */
 .admin-fab{
   position:fixed;bottom:28px;left:28px;
-  background:var(--negro);border:1px solid var(--oro);
-  color:var(--oro);width:56px;height:56px;
+  background:var(--negro);border:1px solid var(--naranja);
+  color:var(--naranja);width:56px;height:56px;
   display:flex;align-items:center;justify-content:center;
   font-size:22px;cursor:pointer;z-index:999;
   transition:all 0.2s;box-shadow:0 4px 20px rgba(0,0,0,0.5);
 }
-.admin-fab:hover{background:var(--oro);color:#050505;}
+.admin-fab:hover{background:var(--naranja);color:#050505;}
 .admin-overlay{
   display:none;position:fixed;inset:0;
   background:rgba(0,0,0,0.9);z-index:3000;
@@ -295,11 +295,11 @@ footer{background:var(--negro);padding:48px 48px 24px;border-top:1px solid rgba(
   padding:24px 32px;border-bottom:1px solid #1a1a1a;
 }
 .admin-header h2{font-size:16px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#fff;}
-.admin-header span{font-size:10px;color:var(--oro);letter-spacing:2px;}
+.admin-header span{font-size:10px;color:var(--naranja);letter-spacing:2px;}
 .admin-close{background:none;border:1px solid #333;color:#666;width:36px;height:36px;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;transition:all 0.2s;}
-.admin-close:hover{border-color:var(--oro);color:var(--oro);}
+.admin-close:hover{border-color:var(--naranja);color:var(--naranja);}
 .admin-body{padding:24px 32px;}
-.admin-section-title{font-size:9px;font-weight:700;letter-spacing:3px;color:var(--oro);text-transform:uppercase;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid #1a1a1a;}
+.admin-section-title{font-size:9px;font-weight:700;letter-spacing:3px;color:var(--naranja);text-transform:uppercase;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid #1a1a1a;}
 .admin-cars-list{display:flex;flex-direction:column;gap:8px;margin-bottom:32px;}
 .admin-car-row{
   display:grid;grid-template-columns:48px 1fr auto auto auto;
@@ -314,10 +314,10 @@ footer{background:var(--negro);padding:48px 48px 24px;border-top:1px solid rgba(
 .admin-status-badge{font-size:9px;font-weight:700;letter-spacing:1.5px;padding:4px 10px;text-transform:uppercase;cursor:pointer;border:none;transition:all 0.2s;}
 .admin-status-badge.disponible{background:rgba(37,211,102,0.1);color:#25d366;border:1px solid rgba(37,211,102,0.3);}
 .admin-status-badge.apartado{background:rgba(214,106,17,0.1);color:var(--naranja);border:1px solid rgba(214,106,17,0.3);}
-.admin-status-badge.vendido{background:rgba(185,161,106,0.1);color:var(--oro);border:1px solid rgba(185,161,106,0.3);}
+.admin-status-badge.vendido{background:rgba(185,161,106,0.1);color:var(--naranja);border:1px solid rgba(185,161,106,0.3);}
 .admin-status-badge.oculto{background:rgba(100,100,100,0.1);color:#555;border:1px solid #333;}
 .admin-status-select{background:#0d0d0d;border:1px solid #333;color:#aaa;font-size:10px;padding:6px 10px;font-family:'Montserrat',sans-serif;cursor:pointer;outline:none;letter-spacing:1px;}
-.admin-status-select:focus{border-color:var(--oro);}
+.admin-status-select:focus{border-color:var(--naranja);}
 .admin-delete-btn{background:none;border:1px solid #1a1a1a;color:#444;width:30px;height:30px;cursor:pointer;font-size:12px;display:flex;align-items:center;justify-content:center;transition:all 0.2s;flex-shrink:0;}
 .admin-delete-btn:hover{border-color:#c0392b;color:#c0392b;}
 
@@ -331,17 +331,17 @@ footer{background:var(--negro);padding:48px 48px 24px;border-top:1px solid rgba(
   padding:10px 12px;font-size:12px;font-family:'Montserrat',sans-serif;
   outline:none;transition:border-color 0.2s;resize:vertical;
 }
-.admin-field input:focus,.admin-field select:focus,.admin-field textarea:focus{border-color:var(--oro);}
+.admin-field input:focus,.admin-field select:focus,.admin-field textarea:focus{border-color:var(--naranja);}
 .admin-field input::placeholder,.admin-field textarea::placeholder{color:#333;}
 .admin-field select option{background:#0d0d0d;}
 .admin-form-full{grid-column:1/-1;}
 .admin-btn-add{
-  background:var(--negro);border:1px solid var(--oro);color:var(--oro);
+  background:var(--negro);border:1px solid var(--naranja);color:var(--naranja);
   padding:12px 28px;font-size:11px;font-weight:700;
   letter-spacing:2px;text-transform:uppercase;cursor:pointer;
   transition:all 0.2s;
 }
-.admin-btn-add:hover{background:var(--oro);color:#050505;}
+.admin-btn-add:hover{background:var(--naranja);color:#050505;}
 .admin-notice{
   font-size:9px;color:#444;letter-spacing:1px;
   margin-top:12px;padding-top:12px;
@@ -386,6 +386,7 @@ footer{background:var(--negro);padding:48px 48px 24px;border-top:1px solid rgba(
   footer{padding:36px 20px 20px;}
   .footer-grid{grid-template-columns:1fr 1fr;gap:20px;}
   .footer-bottom{flex-direction:column;text-align:center;}
+  .socials{justify-content:center;margin-right:0;}
   .modal-specs{grid-template-columns:1fr;}
   .admin-car-row{grid-template-columns:40px 1fr auto;}
   .admin-car-row .admin-status-select{display:none;}
@@ -585,7 +586,7 @@ footer{background:var(--negro);padding:48px 48px 24px;border-top:1px solid rgba(
   <div class="admin-panel">
     <div class="admin-header">
       <div>
-        <h2><i class="fas fa-cog" style="color:var(--oro);margin-right:10px;font-size:14px;"></i>Panel de Inventario</h2>
+        <h2><i class="fas fa-cog" style="color:var(--naranja);margin-right:10px;font-size:14px;"></i>Panel de Inventario</h2>
         <span>Solo visible para administradores</span>
       </div>
       <button class="admin-close" onclick="cerrarAdmin()"><i class="fas fa-times"></i></button>
@@ -647,7 +648,7 @@ footer{background:var(--negro);padding:48px 48px 24px;border-top:1px solid rgba(
           </div>
         </div>
         <button class="admin-btn-add" onclick="agregarAuto()"><i class="fas fa-plus" style="margin-right:8px;"></i>Agregar al inventario</button>
-        <p class="admin-notice"><i class="fas fa-info-circle" style="color:var(--oro);margin-right:4px;"></i>Los cambios son temporales (sesi&oacute;n actual). Para cambios permanentes, edita el array INVENTARIO en el c&oacute;digo fuente.</p>
+        <p class="admin-notice"><i class="fas fa-info-circle" style="color:var(--naranja);margin-right:4px;"></i>Los cambios son temporales (sesi&oacute;n actual). Para cambios permanentes, edita el array INVENTARIO en el c&oacute;digo fuente.</p>
       </div>
     </div>
   </div>
@@ -767,7 +768,7 @@ function renderCards() {
   grid.innerHTML = filtered.map((c, i) => {
     const realIdx = INVENTARIO.indexOf(c);
     const statusBadge = c._status && c._status !== "disponible"
-      ? `<span style="position:absolute;bottom:8px;right:8px;background:rgba(0,0,0,0.85);border:1px solid rgba(185,161,106,0.4);color:var(--oro);font-size:8px;font-weight:700;letter-spacing:2px;padding:3px 8px;text-transform:uppercase;">${c._status.toUpperCase()}</span>`
+      ? `<span style="position:absolute;bottom:8px;right:8px;background:rgba(0,0,0,0.85);border:1px solid rgba(185,161,106,0.4);color:var(--naranja);font-size:8px;font-weight:700;letter-spacing:2px;padding:3px 8px;text-transform:uppercase;">${c._status.toUpperCase()}</span>`
       : "";
     return `
     <div class="car-card" onclick="abrir(${realIdx})">
