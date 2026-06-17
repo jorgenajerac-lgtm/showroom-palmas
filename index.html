@@ -49,13 +49,13 @@ nav a.active{color:#fff;border-bottom:1px solid var(--naranja);padding-bottom:2p
 .hero{
   position:relative;min-height:680px;
   background:#000;
-  display:flex;align-items:center;padding:110px 80px;overflow:hidden;
+  display:flex;align-items:flex-start;padding:40px 80px;overflow:hidden;
 }
 .hero-cars-bg{position:absolute;inset:0;overflow:hidden;}
 .hero-cars-bg video{width:100%;height:100%;object-fit:cover;filter:brightness(0.45);}
 .hero-content{position:relative;z-index:2;max-width:580px;}
 .hero-badge{display:inline-flex;align-items:center;gap:8px;background:transparent;border:0;border-left:1px solid #D66A11;color:#D66A11!important;padding:4px 0 4px 14px;border-radius:0;font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:20px;}
-.hero h1{font-family:'Bebas Neue',sans-serif;color:#fff;font-size:72px;font-weight:700;line-height:1.0;text-transform:uppercase;margin-bottom:8px;}
+.hero h1{font-family:'Bebas Neue',sans-serif;color:#fff;font-size:108px;font-weight:700;line-height:1.0;text-transform:uppercase;margin-bottom:8px;}
 .hero h1 span{color:#D66A11;}
 .hero-sub{color:#c9c2b4;font-size:15px;line-height:1.7;margin:16px 0 36px;max-width:440px;}
 .hero-btns{display:flex;gap:14px;flex-wrap:wrap;}
@@ -90,6 +90,11 @@ nav a.active{color:#fff;border-bottom:1px solid var(--naranja);padding-bottom:2p
 .f-btn:hover,.f-btn.active{background:var(--naranja);color:#050505;border-color:var(--naranja);}
 
 /* GRID CARDS */
+.carousel-wrap{position:relative;}
+.carousel-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.3);color:#555;width:36px;height:36px;border-radius:50%;font-size:14px;cursor:pointer;z-index:10;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(4px);transition:all 0.2s;}
+.carousel-btn:hover{background:var(--naranja);color:#fff;border-color:var(--naranja);}
+.carousel-btn.prev{left:-18px;}
+.carousel-btn.next{right:-18px;}
 .cars-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
 .car-card{background:#fff;border:1px solid #e8e2d8;overflow:hidden;transition:all 0.25s;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,0.06);}
 .car-card:hover{transform:translateY(-4px);border-color:rgba(185,161,106,0.6);box-shadow:0 12px 40px rgba(0,0,0,0.13);}
@@ -408,7 +413,6 @@ footer{background:var(--negro);padding:48px 48px 24px;border-top:1px solid rgba(
 
 /* RESPONSIVE */
 @media(max-width:1100px){
-  .cars-grid{grid-template-columns:repeat(2,1fr);}
   .why-grid{grid-template-columns:repeat(2,1fr);}
   .footer-grid{grid-template-columns:1fr 1fr;gap:28px;}
   .modal{grid-template-columns:1fr;max-height:95vh;overflow-y:auto;}
@@ -416,7 +420,6 @@ footer{background:var(--negro);padding:48px 48px 24px;border-top:1px solid rgba(
   .admin-form-grid{grid-template-columns:1fr;}
 }
 @media(max-width:768px){
-  .cars-grid .car-card:nth-child(4){display:none;}
   header{padding:0 20px;height:82px;}
   .hamburger{display:flex;}
   nav{display:none;flex-direction:column;align-items:flex-start;gap:0;position:absolute;top:82px;left:0;right:0;background:var(--negro);padding:10px 0;z-index:200;border-top:1px solid rgba(185,161,106,0.25);box-shadow:0 8px 24px rgba(0,0,0,0.5);}
@@ -424,13 +427,16 @@ footer{background:var(--negro);padding:48px 48px 24px;border-top:1px solid rgba(
   nav a{padding:13px 24px;width:100%;border-bottom:1px solid #1a1a1a;font-size:13px;}
   .btn-cotiza{margin:12px 24px;width:calc(100% - 48px);justify-content:center;}
   .hero{padding:56px 24px;min-height:560px;}
-  .hero h1{font-size:34px;}
+  .hero h1{font-size:58px;}
   .hero-cars-bg{display:block;}
   .hero-stats{gap:20px;flex-wrap:wrap;}
   .hero-stat .num{font-size:22px;}
   .cats-wrap{padding:0 16px;}
   .inv-section{padding:40px 20px;}
-  .cars-grid{grid-template-columns:repeat(3,1fr);gap:12px;}
+  .cars-grid{display:grid;grid-template-columns:1fr;gap:12px;}
+  .carousel-btn{display:flex!important;}
+  .carousel-btn.prev{left:-14px;}
+  .carousel-btn.next{right:-14px;}
   .strip{grid-template-columns:1fr;}
   .strip-img{height:220px;}
   .strip-content{padding:36px 24px;}
@@ -452,7 +458,7 @@ footer{background:var(--negro);padding:48px 48px 24px;border-top:1px solid rgba(
   .admin-fab{bottom:88px;}
 }
 @media(max-width:480px){
-  .hero h1{font-size:28px;}
+  .hero h1{font-size:58px;}
   .cars-grid{grid-template-columns:1fr;}
   .why-grid{grid-template-columns:1fr;}
   .footer-grid{grid-template-columns:1fr;}
@@ -516,13 +522,11 @@ footer{background:var(--negro);padding:48px 48px 24px;border-top:1px solid rgba(
   <div class="sec-header">
     <h2 class="sec-title">Nuestro <span>Inventario</span></h2>
   </div>
-  <div class="filters-bar">
-    <div class="search-wrap">
-      <i class="fas fa-search"></i>
-      <input type="text" placeholder="Buscar veh&iacute;culo..." oninput="buscarRedirigir(this.value)" id="search-input">
-    </div>
+  <div class="carousel-wrap">
+    <button class="carousel-btn prev" id="carousel-prev" onclick="moverCarrusel(-1)"><i class="fas fa-chevron-left"></i></button>
+    <div class="cars-grid" id="cars-grid"></div>
+    <button class="carousel-btn next" id="carousel-next" onclick="moverCarrusel(1)"><i class="fas fa-chevron-right"></i></button>
   </div>
-  <div class="cars-grid" id="cars-grid"></div>
   <div style="text-align:center;margin-top:40px;">
     <a href="inventario.html" class="btn-ver-todo"><i class="fas fa-th-large"></i> Ver Inventario Completo</a>
   </div>
@@ -802,13 +806,41 @@ const INVENTARIO = [
       {l:"Color", v:"Negro Onix"}
     ],
     wa: "Hola, me interesa el Chevrolet Tahoe Blindado 2022"
-  }
+  },
+  {img:'img/Cadillac-.jpeg',titulo:"Cadillac Escalade ESV",cat:"blindado",anio:"2024",km:"8,500 km",precio:"$4,800,000",badge:"Blindado",specs:[{l:"Año",v:"2024"},{l:"Kilometraje",v:"8,500 km"},{l:"Motor",v:"V8 6.2L"},{l:"Tracción",v:"AWD"},{l:"Nivel Blindaje",v:"B6+"},{l:"Color",v:"Negro Onix"}],wa:"Hola, me interesa la Cadillac Escalade ESV Blindada 2024"},
+  {img:'img/cadillac.jpeg',titulo:"Cadillac CT6",cat:"blindado",anio:"2022",km:"15,000 km",precio:"$3,100,000",badge:"Blindado",specs:[{l:"Año",v:"2022"},{l:"Kilometraje",v:"15,000 km"},{l:"Motor",v:"3.0T V6"},{l:"Tracción",v:"AWD"},{l:"Nivel Blindaje",v:"B6"},{l:"Color",v:"Gris Platino"}],wa:"Hola, me interesa el Cadillac CT6 Blindado 2022"},
+  {img:'img/Suburban-negra.jpeg',titulo:"Chevrolet Suburban",cat:"blindado",anio:"2023",km:"10,200 km",precio:"$3,500,000",badge:"Blindado",specs:[{l:"Año",v:"2023"},{l:"Kilometraje",v:"10,200 km"},{l:"Motor",v:"V8 6.2L"},{l:"Tracción",v:"4x4"},{l:"Nivel Blindaje",v:"B6+"},{l:"Color",v:"Negro Onix"}],wa:"Hola, me interesa la Chevrolet Suburban Blindada 2023"},
+  {img:'img/audi-gris.jpeg',titulo:"Audi Q8 Sportback",cat:"exclusivo",anio:"2024",km:"3,800 km",precio:"$3,200,000",badge:"Exclusivo",specs:[{l:"Año",v:"2024"},{l:"Kilometraje",v:"3,800 km"},{l:"Motor",v:"3.0 TFSI"},{l:"Potencia",v:"340 HP"},{l:"Tracción",v:"Quattro AWD"},{l:"Color",v:"Gris Daytona"}],wa:"Hola, me interesa el Audi Q8 Sportback 2024"},
+  {img:'img/Audi-.jpeg',titulo:"Audi RS7 Sportback",cat:"exclusivo",anio:"2023",km:"7,100 km",precio:"$3,750,000",badge:"Exclusivo",specs:[{l:"Año",v:"2023"},{l:"Kilometraje",v:"7,100 km"},{l:"Motor",v:"4.0 TFSI Biturbo"},{l:"Potencia",v:"591 HP"},{l:"Tracción",v:"Quattro AWD"},{l:"Color",v:"Negro Mythos"}],wa:"Hola, me interesa el Audi RS7 Sportback 2023"},
+  {img:'img/Ford-mustang.jpeg',titulo:"Ford Mustang Shelby GT500",cat:"clasico",anio:"1969",km:"Restaurado",precio:"$4,500,000",badge:"Clásico",specs:[{l:"Año",v:"1969"},{l:"Estado",v:"Restaurado"},{l:"Motor",v:"V8 428 Cobra Jet"},{l:"Transmisión",v:"Manual 4 vel"},{l:"Color",v:"Rojo Raza"},{l:"Interior",v:"Piel negro"}],wa:"Hola, me interesa el Ford Mustang Shelby GT500 1969"},
+  {img:'img/Cadillac-.jpeg',titulo:"Lincoln Navigator",cat:"blindado",anio:"2023",km:"18,000 km",precio:"$3,300,000",badge:"Blindado",specs:[{l:"Año",v:"2023"},{l:"Kilometraje",v:"18,000 km"},{l:"Motor",v:"V6 3.5L Twin Turbo"},{l:"Tracción",v:"4x4"},{l:"Nivel Blindaje",v:"B6"},{l:"Color",v:"Blanco Platino"}],wa:"Hola, me interesa el Lincoln Navigator Blindado 2023"},
+  {img:'img/Suburban-negra.jpeg',titulo:"BMW X7 xDrive",cat:"blindado",anio:"2024",km:"5,600 km",precio:"$3,900,000",badge:"Blindado",specs:[{l:"Año",v:"2024"},{l:"Kilometraje",v:"5,600 km"},{l:"Motor",v:"V8 4.4L Biturbo"},{l:"Potencia",v:"523 HP"},{l:"Nivel Blindaje",v:"B6+"},{l:"Color",v:"Negro Zafiro"}],wa:"Hola, me interesa el BMW X7 Blindado 2024"},
+  {img:'img/audi-gris.jpeg',titulo:"Mercedes-Benz GLS 580",cat:"exclusivo",anio:"2024",km:"4,200 km",precio:"$4,100,000",badge:"Exclusivo",specs:[{l:"Año",v:"2024"},{l:"Kilometraje",v:"4,200 km"},{l:"Motor",v:"V8 4.0L Biturbo"},{l:"Potencia",v:"510 HP"},{l:"Tracción",v:"4MATIC"},{l:"Color",v:"Gris Selenita"}],wa:"Hola, me interesa el Mercedes-Benz GLS 580 2024"},
+  {img:'img/cadillac.jpeg',titulo:"Range Rover Autobiography",cat:"exclusivo",anio:"2023",km:"9,300 km",precio:"$4,600,000",badge:"Exclusivo",specs:[{l:"Año",v:"2023"},{l:"Kilometraje",v:"9,300 km"},{l:"Motor",v:"V8 4.4L"},{l:"Potencia",v:"530 HP"},{l:"Tracción",v:"AWD"},{l:"Color",v:"Blanco Yulong"}],wa:"Hola, me interesa el Range Rover Autobiography 2023"},
+  {img:'img/Cadillac-.jpeg',titulo:"Chevrolet Silverado HD",cat:"blindado",anio:"2023",km:"22,000 km",precio:"$2,400,000",badge:"Blindado",specs:[{l:"Año",v:"2023"},{l:"Kilometraje",v:"22,000 km"},{l:"Motor",v:"V8 6.6L"},{l:"Tracción",v:"4x4"},{l:"Nivel Blindaje",v:"B6"},{l:"Color",v:"Blanco Summit"}],wa:"Hola, me interesa la Chevrolet Silverado HD Blindada 2023"},
+  {img:'img/Suburban-negra.jpeg',titulo:"Toyota Land Cruiser 300",cat:"blindado",anio:"2024",km:"6,000 km",precio:"$3,700,000",badge:"Blindado",specs:[{l:"Año",v:"2024"},{l:"Kilometraje",v:"6,000 km"},{l:"Motor",v:"V6 3.5L Twin Turbo"},{l:"Tracción",v:"4x4"},{l:"Nivel Blindaje",v:"B6+"},{l:"Color",v:"Negro"}],wa:"Hola, me interesa el Toyota Land Cruiser 300 Blindado 2024"},
+  {img:'img/audi-gris.jpeg',titulo:"Porsche Cayenne Turbo GT",cat:"exclusivo",anio:"2023",km:"6,800 km",precio:"$4,200,000",badge:"Exclusivo",specs:[{l:"Año",v:"2023"},{l:"Kilometraje",v:"6,800 km"},{l:"Motor",v:"V8 4.0L Biturbo"},{l:"Potencia",v:"640 HP"},{l:"Tracción",v:"AWD"},{l:"Color",v:"Gris Chalk"}],wa:"Hola, me interesa el Porsche Cayenne Turbo GT 2023"},
+  {img:'img/Ford-mustang.jpeg',titulo:"Chevrolet Camaro SS",cat:"clasico",anio:"1970",km:"Restaurado",precio:"$3,200,000",badge:"Clásico",specs:[{l:"Año",v:"1970"},{l:"Estado",v:"Restaurado"},{l:"Motor",v:"V8 396 Big Block"},{l:"Transmisión",v:"Manual 4 vel"},{l:"Color",v:"Naranja Hugger"},{l:"Interior",v:"Piel negro"}],wa:"Hola, me interesa el Chevrolet Camaro SS 1970"},
+  {img:'img/cadillac.jpeg',titulo:"Lexus LX 600 Ultra Luxury",cat:"exclusivo",anio:"2024",km:"2,100 km",precio:"$3,950,000",badge:"Exclusivo",specs:[{l:"Año",v:"2024"},{l:"Kilometraje",v:"2,100 km"},{l:"Motor",v:"V6 3.5L Twin Turbo"},{l:"Potencia",v:"409 HP"},{l:"Tracción",v:"AWD"},{l:"Color",v:"Blanco Eminent"}],wa:"Hola, me interesa el Lexus LX 600 2024"},
+  {img:'img/Cadillac-.jpeg',titulo:"GMC Yukon Denali",cat:"blindado",anio:"2023",km:"14,500 km",precio:"$2,900,000",badge:"Blindado",specs:[{l:"Año",v:"2023"},{l:"Kilometraje",v:"14,500 km"},{l:"Motor",v:"V8 6.2L"},{l:"Tracción",v:"4x4"},{l:"Nivel Blindaje",v:"B6"},{l:"Color",v:"Blanco Frost"}],wa:"Hola, me interesa el GMC Yukon Denali Blindado 2023"},
+  {img:'img/Suburban-negra.jpeg',titulo:"Ford Expedition Max",cat:"blindado",anio:"2022",km:"31,000 km",precio:"$2,200,000",badge:"Blindado",specs:[{l:"Año",v:"2022"},{l:"Kilometraje",v:"31,000 km"},{l:"Motor",v:"V6 3.5L EcoBoost"},{l:"Tracción",v:"4x4"},{l:"Nivel Blindaje",v:"B6"},{l:"Color",v:"Negro"}],wa:"Hola, me interesa el Ford Expedition Max Blindado 2022"},
+  {img:'img/audi-gris.jpeg',titulo:"Mercedes-Benz S 580",cat:"exclusivo",anio:"2024",km:"3,300 km",precio:"$4,300,000",badge:"Exclusivo",specs:[{l:"Año",v:"2024"},{l:"Kilometraje",v:"3,300 km"},{l:"Motor",v:"V8 4.0L Biturbo"},{l:"Potencia",v:"496 HP"},{l:"Tracción",v:"4MATIC"},{l:"Color",v:"Gris Mojave"}],wa:"Hola, me interesa el Mercedes-Benz S 580 2024"},
+  {img:'img/Ford-mustang.jpeg',titulo:"Dodge Charger Daytona",cat:"clasico",anio:"1969",km:"Restaurado",precio:"$5,100,000",badge:"Clásico",specs:[{l:"Año",v:"1969"},{l:"Estado",v:"Restaurado"},{l:"Motor",v:"V8 440 Six Pack"},{l:"Transmisión",v:"Automática"},{l:"Color",v:"Naranja B5"},{l:"Interior",v:"Original"}],wa:"Hola, me interesa el Dodge Charger Daytona 1969"},
+  {img:'img/cadillac.jpeg',titulo:"Bentley Bentayga EWB",cat:"exclusivo",anio:"2023",km:"5,000 km",precio:"$8,500,000",badge:"Exclusivo",specs:[{l:"Año",v:"2023"},{l:"Kilometraje",v:"5,000 km"},{l:"Motor",v:"V8 4.0L Biturbo"},{l:"Potencia",v:"542 HP"},{l:"Tracción",v:"AWD"},{l:"Color",v:"Blanco Glacier"}],wa:"Hola, me interesa el Bentley Bentayga EWB 2023"},
+  {img:'img/Cadillac-.jpeg',titulo:"Lincoln Navigator Black Label",cat:"exclusivo",anio:"2024",km:"1,800 km",precio:"$3,600,000",badge:"Exclusivo",specs:[{l:"Año",v:"2024"},{l:"Kilometraje",v:"1,800 km"},{l:"Motor",v:"V6 3.5L Twin Turbo"},{l:"Potencia",v:"440 HP"},{l:"Tracción",v:"4x4"},{l:"Color",v:"Negro Monochrome"}],wa:"Hola, me interesa el Lincoln Navigator Black Label 2024"},
+  {img:'img/Suburban-negra.jpeg',titulo:"Cadillac Escalade IQ",cat:"exclusivo",anio:"2025",km:"500 km",precio:"$5,500,000",badge:"Exclusivo",specs:[{l:"Año",v:"2025"},{l:"Kilometraje",v:"500 km"},{l:"Motor",v:"Eléctrico"},{l:"Autonomía",v:"724 km"},{l:"Tracción",v:"AWD"},{l:"Color",v:"Negro Stellar"}],wa:"Hola, me interesa el Cadillac Escalade IQ 2025"},
+  {img:'img/audi-gris.jpeg',titulo:"Audi Q7 Blindada",cat:"blindado",anio:"2023",km:"11,400 km",precio:"$2,750,000",badge:"Blindado",specs:[{l:"Año",v:"2023"},{l:"Kilometraje",v:"11,400 km"},{l:"Motor",v:"V6 3.0 TFSI"},{l:"Potencia",v:"335 HP"},{l:"Nivel Blindaje",v:"B6"},{l:"Color",v:"Gris Quantum"}],wa:"Hola, me interesa el Audi Q7 Blindado 2023"},
+  {img:'img/Ford-mustang.jpeg',titulo:"Pontiac GTO Judge",cat:"clasico",anio:"1970",km:"Colección",precio:"$2,800,000",badge:"Clásico",specs:[{l:"Año",v:"1970"},{l:"Estado",v:"Colección"},{l:"Motor",v:"V8 400 Ram Air"},{l:"Transmisión",v:"Manual 4 vel"},{l:"Color",v:"Orbit Orange"},{l:"Interior",v:"Original"}],wa:"Hola, me interesa el Pontiac GTO Judge 1970"},
+  {img:'img/cadillac.jpeg',titulo:"BMW Alpina XB7",cat:"exclusivo",anio:"2024",km:"2,900 km",precio:"$4,700,000",badge:"Exclusivo",specs:[{l:"Año",v:"2024"},{l:"Kilometraje",v:"2,900 km"},{l:"Motor",v:"V8 4.4L Biturbo"},{l:"Potencia",v:"612 HP"},{l:"Tracción",v:"AWD"},{l:"Color",v:"Azul Alpina"}],wa:"Hola, me interesa el BMW Alpina XB7 2024"},
+  {img:'img/Cadillac-.jpeg',titulo:"Mercedes-Benz G 63 AMG",cat:"exclusivo",anio:"2024",km:"1,200 km",precio:"$5,800,000",badge:"Exclusivo",specs:[{l:"Año",v:"2024"},{l:"Kilometraje",v:"1,200 km"},{l:"Motor",v:"V8 4.0L Biturbo"},{l:"Potencia",v:"577 HP"},{l:"Tracción",v:"4MATIC"},{l:"Color",v:"Negro Obsidiana"}],wa:"Hola, me interesa el Mercedes-Benz G 63 AMG 2024"}
 ];
 
 // Config
 const WA_NUM = "5215574495611";
 let catActual = "todos";
 let busquedaActual = "";
+let paginaActual = 0;
+function getPorPagina(){ return window.innerWidth <= 768 ? 1 : 4; }
 
 // Render cards
 function badgeClass(cat){ return cat; }
@@ -818,19 +850,29 @@ function badgeLabel(cat){
 
 function renderCards() {
   const grid = document.getElementById("cars-grid");
+  const orden = {blindado:0, exclusivo:1, clasico:2};
   const filtered = INVENTARIO.filter(c => {
     if(c._oculto) return false;
     const catOk = catActual === "todos" || c.cat === catActual;
     const busOk = c.titulo.toLowerCase().includes(busquedaActual.toLowerCase());
     return catOk && busOk;
-  });
+  }).sort((a,b) => (orden[a.cat]??9) - (orden[b.cat]??9));
 
   if (!filtered.length) {
     grid.innerHTML = `<div class="no-results"><i class="fas fa-car"></i>No hay veh\u00edculos en esta categor\u00eda por el momento.</div>`;
+    document.getElementById("carousel-prev").style.display = "none";
+    document.getElementById("carousel-next").style.display = "none";
     return;
   }
 
-  grid.innerHTML = filtered.map((c, i) => {
+  const totalPags = Math.ceil(filtered.length / getPorPagina());
+  if(paginaActual >= totalPags) paginaActual = totalPags - 1;
+  const pagina = filtered.slice(paginaActual * getPorPagina(), (paginaActual + 1) * getPorPagina());
+
+  document.getElementById("carousel-prev").style.display = paginaActual > 0 ? "flex" : "none";
+  document.getElementById("carousel-next").style.display = paginaActual < totalPags - 1 ? "flex" : "none";
+
+  grid.innerHTML = pagina.map((c) => {
     const realIdx = INVENTARIO.indexOf(c);
     const statusBadge = c._status && c._status !== "disponible"
       ? `<span style="position:absolute;bottom:8px;right:8px;background:rgba(0,0,0,0.85);border:1px solid rgba(185,161,106,0.4);color:var(--naranja);font-size:8px;font-weight:700;letter-spacing:2px;padding:3px 8px;text-transform:uppercase;">${c._status.toUpperCase()}</span>`
@@ -855,6 +897,13 @@ function renderCards() {
       </div>
     </div>`;
   }).join("");
+}
+
+function moverCarrusel(dir) {
+  const filtered = INVENTARIO.filter(c => !c._oculto && (catActual === "todos" || c.cat === catActual));
+  const totalPags = Math.ceil(filtered.length / getPorPagina());
+  paginaActual = Math.max(0, Math.min(paginaActual + dir, totalPags - 1));
+  renderCards();
 }
 
 // Filtro
@@ -1028,6 +1077,15 @@ function agregarAuto() {
   });
   alert("Unidad \u00201C" + titulo + "\u00201D agregada al inventario.");
 }
+
+// Swipe táctil en carrusel
+let swipeStartX = 0;
+const cGrid = document.getElementById('cars-grid');
+cGrid.addEventListener('touchstart', e => { swipeStartX = e.touches[0].clientX; }, {passive:true});
+cGrid.addEventListener('touchend', e => {
+  const diff = swipeStartX - e.changedTouches[0].clientX;
+  if(Math.abs(diff) > 40) moverCarrusel(diff > 0 ? 1 : -1);
+}, {passive:true});
 
 // Hamburger
 const hbg = document.getElementById("hamburger");
