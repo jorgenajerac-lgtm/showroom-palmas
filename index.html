@@ -130,7 +130,7 @@ nav a.active{color:#fff;border-bottom:1px solid var(--naranja);padding-bottom:2p
 .strip:hover .strip-img img{transform:scale(1.03);}
 .strip-content{display:flex;flex-direction:column;justify-content:center;padding:60px 64px;}
 .strip-label{color:var(--naranja);font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:14px;}
-.strip-content h2{font-family:'Bebas Neue',sans-serif;color:#fff;font-size:46px;font-weight:700;text-transform:uppercase;line-height:1.0;margin-bottom:16px;}
+.strip-content h2{font-family:'Bebas Neue',sans-serif;color:#fff;font-size:72px;font-weight:700;text-transform:uppercase;line-height:1.0;margin-bottom:16px;}
 .strip-content h2 span{color:#D66A11;}
 .strip-content p{color:#999;font-size:14px;line-height:1.8;margin-bottom:28px;}
 .strip-feats{display:flex;flex-direction:column;gap:12px;margin-bottom:32px;}
@@ -194,13 +194,15 @@ footer{background:var(--negro);padding:48px 48px 24px;border-top:1px solid rgba(
 
 /* MODAL PREMIUM - ESTILO ROLLS-ROYCE / MERCEDES */
 /* MODAL FULL PAGE */
-.overlay{display:none;position:fixed;inset:0;background:#fff;z-index:2000;overflow-y:auto;}
+.overlay{display:none;position:fixed;inset:0;background:#fff;z-index:2000;overflow-y:auto;overflow-x:hidden;width:100%;max-width:100vw;}
 .overlay.open{display:block;}
 .modal{
   background:#fff;
   min-height:100vh;
+  width:100%;max-width:100%;
   display:grid;grid-template-columns:55% 45%;
   position:relative;
+  overflow-x:hidden;
 }
 .modal-gallery{
   position:relative;
@@ -214,6 +216,7 @@ footer{background:var(--negro);padding:48px 48px 24px;border-top:1px solid rgba(
 .modal-img-wrap{
   position:relative;
   width:100%;height:100%;
+  overflow:hidden;
 }
 .modal-img-wrap img{
   width:100%;height:100%;object-fit:cover;object-position:center center;display:block;
@@ -235,7 +238,20 @@ footer{background:var(--negro);padding:48px 48px 24px;border-top:1px solid rgba(
 }
 .modal-thumb:hover{opacity:1;}
 .modal-thumb.active{border-color:var(--naranja);opacity:1;}
+.modal-gallery-main{position:relative;width:100%;height:75vh;flex-shrink:0;overflow:hidden;background:#f5f5f5;}
+.modal-gallery-main img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;cursor:zoom-in;}
+.gallery-thumbs{width:100%;display:flex;gap:8px;overflow-x:auto;padding:10px 16px;background:#fff;scrollbar-width:thin;}
+.gallery-thumbs::-webkit-scrollbar{height:4px;}
+.gallery-thumbs::-webkit-scrollbar-thumb{background:#ccc;}
+.gallery-thumb{width:72px;height:52px;flex-shrink:0;object-fit:cover;cursor:pointer;border:2px solid transparent;opacity:0.6;transition:all 0.2s;}
+.gallery-thumb:hover{opacity:1;}
+.gallery-thumb.active{border-color:var(--naranja);opacity:1;}
 .modal-gallery-overlay{display:none;}
+.modal-arrow,.gallery-arrow{display:flex;position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,0.45);border:none;color:#fff;width:40px;height:40px;align-items:center;justify-content:center;font-size:16px;cursor:pointer;z-index:5;transition:background 0.2s;}
+.modal-arrow:hover,.gallery-arrow:hover{background:rgba(214,106,17,0.85);}
+.modal-arrow.prev,.gallery-arrow.prev{left:12px;}
+.modal-arrow.next,.gallery-arrow.next{right:12px;}
+.modal-arrow.hidden,.gallery-arrow.hidden{display:none;}
 .modal-badge-luxury{
   position:absolute;top:24px;left:24px;
   background:var(--naranja);
@@ -316,15 +332,19 @@ footer{background:var(--negro);padding:48px 48px 24px;border-top:1px solid rgba(
   .modal-title{font-size:36px;}
 }
 @media(max-width:768px){
-  .modal{grid-template-columns:1fr;}
-  .modal-gallery{min-height:auto;}
-  .modal-main-img{height:55vw;min-height:200px;}
+  .modal{grid-template-columns:1fr;max-height:none;overflow-y:visible;}
+  .modal-gallery{min-height:auto;height:auto;}
+  .modal-main-img{height:56vw;min-height:240px;}
+  .modal-img-wrap img{object-fit:contain;background:#f5f5f5;}
   .modal-panel{padding:24px 20px;min-height:auto;}
   .modal-title{font-size:26px;}
   .modal-sub{font-size:12px;margin-bottom:16px;padding-bottom:16px;}
   .modal-specs{grid-template-columns:1fr 1fr;gap:8px;margin-bottom:16px;}
   .mspec span{font-size:14px;}
   .modal-eyebrow{font-size:10px;}
+  .modal-thumbs{padding:10px 12px;gap:6px;}
+  .modal-thumb{width:64px;height:48px;}
+  .modal-close{top:12px;right:12px;width:36px;height:36px;font-size:14px;}
 }
 
 /* WA FLOAT */
@@ -440,7 +460,7 @@ footer{background:var(--negro);padding:48px 48px 24px;border-top:1px solid rgba(
   .strip{grid-template-columns:1fr;}
   .strip-img{height:220px;}
   .strip-content{padding:36px 24px;}
-  .strip-content h2{font-size:26px;}
+  .strip-content h2{font-size:52px;}
   .why{padding:48px 20px;}
   .why-grid{grid-template-columns:1fr 1fr;gap:16px;}
   .cta{padding:56px 24px;}
@@ -463,6 +483,198 @@ footer{background:var(--negro);padding:48px 48px 24px;border-top:1px solid rgba(
   .why-grid{grid-template-columns:1fr;}
   .footer-grid{grid-template-columns:1fr;}
 }
+
+/* === AJUSTE FICHAS DE INVENTARIO === */
+.overlay{
+  width:100vw;
+  max-width:none;
+  margin:0;
+}
+.overlay.open{
+  display:block;
+}
+.modal{
+  width:100%;
+  max-width:none;
+  margin:0;
+}
+.modal-main-img,
+.modal-gallery-main{
+  background:#f5f5f5;
+}
+.modal-img-wrap img,
+.modal-gallery-main img{
+  object-fit:contain;
+  object-position:center;
+}
+.modal-thumbs,
+.gallery-thumbs{
+  box-sizing:border-box;
+  padding:10px 16px;
+  background:#fff;
+}
+@media(max-width:1024px){
+  .modal{
+    grid-template-columns:minmax(0,1.15fr) minmax(320px,0.85fr);
+  }
+  .modal-gallery,
+  .modal-panel{
+    min-width:0;
+  }
+  .modal-main-img,
+  .modal-gallery-main{
+    height:56vh;
+    min-height:360px;
+  }
+}
+@media(max-width:768px){
+  .overlay{
+    inset:0;
+    width:100vw;
+    max-width:100vw;
+    background:#fff;
+    overflow-x:hidden;
+  }
+  .modal{
+    display:block;
+    width:100%;
+    max-width:100%;
+    min-height:100dvh;
+    overflow:visible;
+  }
+  .modal-gallery{
+    width:100%;
+    min-height:0;
+    height:auto;
+    gap:0;
+    padding:0;
+    justify-content:flex-start;
+  }
+  .modal-main-img,
+  .modal-gallery-main{
+    width:100%;
+    height:clamp(260px,62vw,430px);
+    min-height:0;
+    aspect-ratio:auto;
+  }
+  .modal-img-wrap{
+    width:100%;
+    height:100%;
+  }
+  .modal-img-wrap img,
+  .modal-gallery-main img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    object-position:center;
+    background:#f5f5f5;
+  }
+  .modal-thumbs,
+  .gallery-thumbs{
+    width:100%;
+    gap:8px;
+    padding:10px 12px;
+    overflow-x:auto;
+  }
+  .modal-thumb,
+  .gallery-thumb{
+    width:70px;
+    height:52px;
+  }
+  .modal-panel{
+    width:100%;
+    min-height:0;
+    padding:28px 20px 40px;
+    overflow:visible;
+    border-left:0;
+    border-top:1px solid #eee;
+  }
+  .modal-title{
+    font-size:30px;
+    line-height:1.05;
+  }
+  .modal-sub{
+    margin-bottom:20px;
+    padding-bottom:20px;
+  }
+  .modal-specs{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:8px;
+    margin-bottom:20px;
+  }
+  .mspec{
+    min-width:0;
+    padding:13px 12px;
+  }
+  .mspec label,
+  .mspec .sl{
+    font-size:9px;
+    letter-spacing:1.4px;
+    margin-bottom:6px;
+  }
+  .mspec span,
+  .mspec .sv{
+    display:block;
+    font-size:13px;
+    line-height:1.35;
+    overflow-wrap:anywhere;
+  }
+  .modal-close{
+    position:fixed;
+    top:12px;
+    right:12px;
+    width:38px;
+    height:38px;
+    z-index:2100;
+  }
+}
+@media(max-width:420px){
+  .modal-main-img,
+  .modal-gallery-main{
+    height:66vw;
+    min-height:235px;
+  }
+  .modal-panel{
+    padding:24px 16px 36px;
+  }
+  .modal-title{
+    font-size:27px;
+  }
+  .modal-thumb,
+  .gallery-thumb{
+    width:62px;
+    height:46px;
+  }
+}
+/* === FIN AJUSTE FICHAS DE INVENTARIO === */
+
+/* === AJUSTE IMAGEN PRINCIPAL SIN BORDE === */
+.modal-main-img,
+.modal-img-wrap{
+  background:#111;
+  overflow:hidden;
+  border:0;
+  outline:0;
+}
+.modal-img-wrap img{
+  width:calc(100% + 2px)!important;
+  height:calc(100% + 2px)!important;
+  margin:-1px;
+  object-fit:cover!important;
+  object-position:center!important;
+  border:0!important;
+  outline:0!important;
+  box-shadow:none!important;
+  cursor:zoom-in;
+}
+/* === FIN AJUSTE IMAGEN PRINCIPAL SIN BORDE === */
+
+/* === VISOR DE ZOOM DE LA FICHA === */
+.zoom-overlay{display:none;position:fixed;inset:0;background:#000;z-index:9999;align-items:center;justify-content:center;overflow:hidden;}
+.zoom-overlay.open{display:flex;}
+.zoom-overlay img{max-width:100vw;max-height:100vh;width:auto;height:auto;object-fit:contain;display:block;touch-action:pinch-zoom;}
+.zoom-close{position:absolute;top:16px;right:16px;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.25);color:#fff;width:42px;height:42px;border-radius:50%;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:2;}
+/* === FIN VISOR DE ZOOM DE LA FICHA === */
 </style>
 </head>
 <body>
@@ -621,28 +833,34 @@ footer{background:var(--negro);padding:48px 48px 24px;border-top:1px solid rgba(
   <i class="fas fa-sliders-h"></i>
 </button>
 
-<!-- MODAL PREMIUM -->
+<!-- ZOOM DE IMAGEN -->
+<div class="zoom-overlay" id="zoom-overlay" onclick="cerrarZoom()">
+  <button class="zoom-close" onclick="cerrarZoom()" aria-label="Cerrar imagen"><i class="fas fa-times"></i></button>
+  <img id="zoom-img" src="" alt="Vista ampliada" onclick="event.stopPropagation()">
+</div>
+<!-- MODAL -->
 <div class="overlay" id="overlay" onclick="cerrarFuera(event)">
   <div class="modal">
     <button class="modal-close" onclick="cerrar()"><i class="fas fa-times"></i></button>
     <div class="modal-gallery">
-      <div class="modal-main-img">
-        <div class="modal-img-wrap">
-          <img id="m-img" src="" alt="">
-          <span class="modal-badge-luxury" id="m-badge">Blindado</span>
-        </div>
+      <div class="modal-gallery-main">
+        <img id="m-img" src="" alt="" onclick="abrirZoom()">
+        <div class="modal-gallery-overlay"></div>
+        <span class="modal-badge-luxury" id="m-badge">Blindado</span>
+        <button class="gallery-arrow prev" onclick="cambiarFotoIdx(-1)"><i class="fas fa-chevron-left"></i></button>
+        <button class="gallery-arrow next" onclick="cambiarFotoIdx(1)"><i class="fas fa-chevron-right"></i></button>
       </div>
-      <div class="modal-thumbs" id="m-thumbs"></div>
+      <div class="gallery-thumbs" id="m-thumbs"></div>
     </div>
     <div class="modal-panel">
-      <div class="modal-eyebrow" id="m-eyebrow">TPS Armoring &mdash; Showroom Palmas</div>
+      <div class="modal-eyebrow">TPS Armoring &mdash; Showroom Palmas</div>
       <div class="modal-title" id="m-titulo"></div>
       <div class="modal-sub" id="m-sub"></div>
       <hr class="modal-divider">
       <div class="modal-specs-title">Especificaciones t&eacute;cnicas</div>
       <div class="modal-specs" id="m-specs"></div>
       <div class="modal-btns">
-        <a href="#" class="mbtn-wa" id="m-wa"><i class="fab fa-whatsapp"></i> Cotizar por WhatsApp</a>
+        <a href="#" class="mbtn-wa" id="m-wa" target="_blank"><i class="fab fa-whatsapp"></i> Cotizar por WhatsApp</a>
         <button class="mbtn-close" onclick="cerrar()">Cerrar ficha</button>
       </div>
     </div>
@@ -736,7 +954,7 @@ footer{background:var(--negro);padding:48px 48px 24px;border-top:1px solid rgba(
 const INVENTARIO = [
   {
     img:'img/CADILLAC-ESCALADE-BLANCA-6188/IMG_9573.jpg',
-    imgs:['img/CADILLAC-ESCALADE-BLANCA-6188/IMG_9513.jpg','img/CADILLAC-ESCALADE-BLANCA-6188/IMG_9514.jpg','img/CADILLAC-ESCALADE-BLANCA-6188/IMG_9569.jpg','img/CADILLAC-ESCALADE-BLANCA-6188/IMG_9573.jpg','img/CADILLAC-ESCALADE-BLANCA-6188/IMG_9575.jpg','img/CADILLAC-ESCALADE-BLANCA-6188/IMG_9580.jpg','img/CADILLAC-ESCALADE-BLANCA-6188/IMG_9584.jpg','img/CADILLAC-ESCALADE-BLANCA-6188/IMG_9592.jpg','img/CADILLAC-ESCALADE-BLANCA-6188/IMG_9596.jpg','img/CADILLAC-ESCALADE-BLANCA-6188/IMG_9597.jpg','img/CADILLAC-ESCALADE-BLANCA-6188/IMG_9604.jpg','img/CADILLAC-ESCALADE-BLANCA-6188/IMG_9609.jpg','img/CADILLAC-ESCALADE-BLANCA-6188/IMG_9613.jpg','img/CADILLAC-ESCALADE-BLANCA-6188/IMG_9628.jpg','img/CADILLAC-ESCALADE-BLANCA-6188/IMG_9630.jpg','img/CADILLAC-ESCALADE-BLANCA-6188/IMG_9636.jpg','img/CADILLAC-ESCALADE-BLANCA-6188/IMG_9642.jpg','img/CADILLAC-ESCALADE-BLANCA-6188/IMG_9646.jpg'],
+    imgs:['img/CADILLAC-ESCALADE-BLANCA-6188/IMG_9569.jpg','img/CADILLAC-ESCALADE-BLANCA-6188/IMG_9573.jpg','img/CADILLAC-ESCALADE-BLANCA-6188/IMG_9575.jpg','img/CADILLAC-ESCALADE-BLANCA-6188/IMG_9580.jpg','img/CADILLAC-ESCALADE-BLANCA-6188/IMG_9584.jpg','img/CADILLAC-ESCALADE-BLANCA-6188/IMG_9592.jpg','img/CADILLAC-ESCALADE-BLANCA-6188/IMG_9596.jpg','img/CADILLAC-ESCALADE-BLANCA-6188/IMG_9597.jpg','img/CADILLAC-ESCALADE-BLANCA-6188/IMG_9604.jpg','img/CADILLAC-ESCALADE-BLANCA-6188/IMG_9609.jpg','img/CADILLAC-ESCALADE-BLANCA-6188/IMG_9613.jpg','img/CADILLAC-ESCALADE-BLANCA-6188/IMG_9628.jpg','img/CADILLAC-ESCALADE-BLANCA-6188/IMG_9630.jpg','img/CADILLAC-ESCALADE-BLANCA-6188/IMG_9636.jpg','img/CADILLAC-ESCALADE-BLANCA-6188/IMG_9642.jpg','img/CADILLAC-ESCALADE-BLANCA-6188/IMG_9646.jpg'],
     titulo:"Cadillac Escalade",cat:"blindado",anio:"Consultar",km:"Consultar",badge:"Blindado",
     specs:[{l:"Color",v:"Blanco"},{l:"Placas",v:"6188"},{l:"Nivel Blindaje",v:"Consultar"},{l:"Tracción",v:"AWD"}],
     wa:"Hola, me interesa la Cadillac Escalade Blanca (6188) del Showroom TPS Armoring Palmas 810"
@@ -907,11 +1125,17 @@ function fav(e, btn) {
 }
 
 // Modal premium
+let mFotos = [], mIdx = 0;
 function abrir(i) {
   const c = INVENTARIO[i];
-  const imgs = c.imgs && c.imgs.length ? c.imgs : [c.img];
+  mFotos = c.imgs && c.imgs.length ? c.imgs : [c.img];
+  mIdx = Math.max(0, mFotos.indexOf(c.img));
+  const imgs = mFotos;
   const mainImg = document.getElementById("m-img");
-  mainImg.src = imgs[0];
+  mainImg.src = c.img;
+  document.querySelectorAll(".gallery-arrow").forEach(a => {
+    a.style.display = mFotos.length > 1 ? 'flex' : 'none';
+  });
   document.getElementById("m-titulo").textContent = c.titulo;
   document.getElementById("m-badge").textContent = badgeLabel(c.cat);
   document.getElementById("m-sub").textContent = c.anio + "  \u00b7  " + c.km + "  \u00b7  " + badgeLabel(c.cat);
@@ -924,7 +1148,7 @@ function abrir(i) {
   const thumbsEl = document.getElementById("m-thumbs");
   if(imgs.length > 1) {
     thumbsEl.innerHTML = imgs.map((src, idx) =>
-      `<img class="modal-thumb${idx===0?' active':''}" src="${src}" onclick="cambiarFoto(this,'${src}')">`
+      `<img class="gallery-thumb${idx===mIdx?' active':''}" src="${src}" onclick="irFoto(${idx})">`
     ).join("");
     thumbsEl.style.display = "flex";
   } else {
@@ -934,10 +1158,26 @@ function abrir(i) {
   document.getElementById("overlay").classList.add("open");
   document.body.style.overflow = "hidden";
 }
-function cambiarFoto(thumb, src) {
-  document.getElementById("m-img").src = src;
-  document.querySelectorAll(".modal-thumb").forEach(t => t.classList.remove("active"));
-  thumb.classList.add("active");
+function irFoto(idx) {
+  mIdx = idx;
+  document.getElementById("m-img").src = mFotos[mIdx];
+  document.querySelectorAll(".gallery-thumb").forEach((t,i) => t.classList.toggle("active", i === mIdx));
+}
+function cambiarFotoIdx(dir) {
+  mIdx = (mIdx + dir + mFotos.length) % mFotos.length;
+  document.getElementById("m-img").src = mFotos[mIdx];
+  document.querySelectorAll(".gallery-thumb").forEach((t,i) => t.classList.toggle("active", i === mIdx));
+}
+function abrirZoom() {
+  const principal = document.getElementById("m-img");
+  const ampliada = document.getElementById("zoom-img");
+  if (!principal || !ampliada || !principal.src) return;
+  ampliada.src = principal.src;
+  document.getElementById("zoom-overlay").classList.add("open");
+}
+function cerrarZoom() {
+  const zoom = document.getElementById("zoom-overlay");
+  if (zoom) zoom.classList.remove("open");
 }
 function cerrar() {
   document.getElementById("overlay").classList.remove("open");
@@ -947,7 +1187,7 @@ function cerrarFuera(e) {
   if(e.target === document.getElementById("overlay")) cerrar();
 }
 document.addEventListener("keydown", e => {
-  if(e.key==="Escape"){ cerrar(); cerrarAdmin(); }
+  if(e.key==="Escape"){ cerrarZoom(); cerrar(); cerrarAdmin(); }
 });
 
 // PANEL ADMIN
