@@ -47,8 +47,8 @@ header{background:rgba(0,0,0,0.97);display:flex;align-items:center;justify-conte
 /* GRID */
 .inv-body{padding:40px 48px 80px;}
 .cars-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
-.car-card{background:#fff;border:1px solid #e8e2d8;overflow:hidden;transition:all 0.25s;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,0.05);}
-.car-card:hover{transform:translateY(-4px);border-color:rgba(214,106,17,0.5);box-shadow:0 12px 40px rgba(0,0,0,0.12);}
+.car-card{background:#fff;border:1px solid #e8e2d8;overflow:hidden;transition:all 0.25s;cursor:pointer;box-shadow:none;}
+.car-card:hover{transform:translateY(-4px);border-color:rgba(185,161,106,0.6);box-shadow:0 12px 40px rgba(0,0,0,0.13);}
 .car-img-wrap{position:relative;overflow:hidden;height:200px;background:#ede8df;}
 .car-img-wrap img{width:100%;height:100%;object-fit:cover;object-position:center center;transition:transform 0.4s;display:block;}
 .car-card:hover .car-img-wrap img{transform:scale(1.05);}
@@ -71,14 +71,14 @@ header{background:rgba(0,0,0,0.97);display:flex;align-items:center;justify-conte
 .no-results i{font-size:48px;color:#ddd;display:block;margin-bottom:16px;}
 
 /* MODAL */
-.overlay{display:none;position:fixed;inset:0;background:#fff;z-index:2000;overflow-y:auto;}
+.overlay{display:none;position:fixed;inset:0;background:#fff;z-index:2000;overflow-y:auto;overflow-x:hidden;width:100%;max-width:100vw;}
 .overlay.open{display:block;}
-.modal{background:#fff;min-height:100vh;display:grid;grid-template-columns:55% 45%;position:relative;}
+.modal{background:#fff;min-height:100vh;width:100%;max-width:100%;display:grid;grid-template-columns:55% 45%;position:relative;overflow-x:hidden;}
 .modal-close{position:fixed;top:20px;right:20px;background:#fff;border:1px solid #ddd;color:#333;width:42px;height:42px;border-radius:50%;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:10;transition:all 0.2s;box-shadow:0 2px 8px rgba(0,0,0,0.1);}
 .modal-close:hover{background:var(--naranja);border-color:var(--naranja);color:#fff;}
 .modal-gallery{position:relative;min-height:100vh;background:#fff;display:flex;flex-direction:column;align-items:stretch;justify-content:center;gap:16px;padding-bottom:16px;}
-.modal-gallery-main{width:100%;height:75vh;position:relative;flex-shrink:0;}
-.modal-gallery-main img{width:100%;height:100%;object-fit:cover;object-position:center bottom;display:block;touch-action:pinch-zoom;cursor:zoom-in;transition:opacity 0.2s;}
+.modal-gallery-main{width:100%;height:75vh;position:relative;flex-shrink:0;overflow:hidden;}
+.modal-gallery-main img{width:100%;height:100%;object-fit:cover;object-position:center center;display:block;touch-action:pinch-zoom;cursor:zoom-in;transition:opacity 0.2s;}
 .modal-gallery-overlay{display:none;}
 .modal-badge-luxury{position:absolute;top:24px;left:24px;background:var(--naranja);color:#fff;font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:5px 14px;z-index:2;}
 .gallery-thumbs{width:100%;display:flex;gap:8px;overflow-x:auto;padding:0 16px 4px;scrollbar-width:thin;background:#fff;}
@@ -87,7 +87,11 @@ header{background:rgba(0,0,0,0.97);display:flex;align-items:center;justify-conte
 .gallery-thumb{width:72px;height:52px;flex-shrink:0;object-fit:cover;cursor:pointer;border:2px solid transparent;opacity:0.6;transition:all 0.2s;}
 .gallery-thumb:hover{opacity:1;}
 .gallery-thumb.active{border-color:var(--naranja);opacity:1;}
-.gallery-arrow{display:none;}
+.gallery-arrow{display:flex;position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,0.45);border:none;color:#fff;width:40px;height:40px;align-items:center;justify-content:center;font-size:16px;cursor:pointer;z-index:5;transition:background 0.2s;}
+.gallery-arrow:hover{background:rgba(214,106,17,0.85);}
+.gallery-arrow.prev{left:12px;}
+.gallery-arrow.next{right:12px;}
+.gallery-arrow.hidden{display:none;}
 .modal-panel{display:flex;flex-direction:column;justify-content:center;padding:60px 48px;overflow-y:auto;background:#fff;border-left:1px solid #eee;min-height:100vh;}
 .modal-eyebrow{font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--naranja);margin-bottom:12px;}
 .modal-title{font-family:'Bebas Neue',sans-serif;font-size:48px;font-weight:700;color:#1a1510;text-transform:uppercase;line-height:1.0;margin-bottom:8px;}
@@ -128,9 +132,11 @@ header{background:rgba(0,0,0,0.97);display:flex;align-items:center;justify-conte
   .filtros-wrap{padding:14px 20px;}
   .inv-body{padding:24px 20px 60px;}
   .cars-grid{grid-template-columns:repeat(2,1fr);gap:12px;}
-  .modal{grid-template-columns:1fr;}
-  .modal-gallery{min-height:auto;justify-content:flex-start;}
-  .modal-gallery-main{height:55vh;min-height:55vh;}
+  .modal{grid-template-columns:1fr;overflow-x:hidden;}
+  .modal-gallery{min-height:auto;justify-content:flex-start;gap:0;padding:0;}
+  .modal-gallery-main{height:65vw;min-height:220px;}
+  .modal-gallery-main img{object-fit:cover;object-position:center center;background:#000;}
+  .gallery-thumbs{padding:8px 12px;}
   .modal-panel{padding:24px 20px;min-height:auto;border-left:none;border-top:1px solid #eee;}
   .modal-title{font-size:26px;}
   .modal-sub{font-size:12px;margin-bottom:16px;padding-bottom:16px;}
@@ -142,6 +148,170 @@ header{background:rgba(0,0,0,0.97);display:flex;align-items:center;justify-conte
   .cars-grid{grid-template-columns:1fr;}
   .modal-specs{grid-template-columns:1fr;}
 }
+
+/* === AJUSTE FICHAS DE INVENTARIO === */
+.overlay{
+  width:100vw;
+  max-width:none;
+  margin:0;
+}
+.overlay.open{
+  display:block;
+}
+.modal{
+  width:100%;
+  max-width:none;
+  margin:0;
+}
+.modal-main-img,
+.modal-gallery-main{
+  background:#f5f5f5;
+}
+.modal-img-wrap img,
+.modal-gallery-main img{
+  object-fit:contain;
+  object-position:center;
+}
+.modal-thumbs,
+.gallery-thumbs{
+  box-sizing:border-box;
+  padding:10px 16px;
+  background:#fff;
+}
+@media(max-width:1024px){
+  .modal{
+    grid-template-columns:minmax(0,1.15fr) minmax(320px,0.85fr);
+  }
+  .modal-gallery,
+  .modal-panel{
+    min-width:0;
+  }
+  .modal-main-img,
+  .modal-gallery-main{
+    height:56vh;
+    min-height:360px;
+  }
+}
+@media(max-width:768px){
+  .overlay{
+    inset:0;
+    width:100vw;
+    max-width:100vw;
+    background:#fff;
+    overflow-x:hidden;
+  }
+  .modal{
+    display:block;
+    width:100%;
+    max-width:100%;
+    min-height:100dvh;
+    overflow:visible;
+  }
+  .modal-gallery{
+    width:100%;
+    min-height:0;
+    height:auto;
+    gap:0;
+    padding:0;
+    justify-content:flex-start;
+  }
+  .modal-main-img,
+  .modal-gallery-main{
+    width:100%;
+    height:clamp(260px,62vw,430px);
+    min-height:0;
+    aspect-ratio:auto;
+  }
+  .modal-img-wrap{
+    width:100%;
+    height:100%;
+  }
+  .modal-img-wrap img,
+  .modal-gallery-main img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    object-position:center;
+    background:#f5f5f5;
+  }
+  .modal-thumbs,
+  .gallery-thumbs{
+    width:100%;
+    gap:8px;
+    padding:10px 12px;
+    overflow-x:auto;
+  }
+  .modal-thumb,
+  .gallery-thumb{
+    width:70px;
+    height:52px;
+  }
+  .modal-panel{
+    width:100%;
+    min-height:0;
+    padding:28px 20px 40px;
+    overflow:visible;
+    border-left:0;
+    border-top:1px solid #eee;
+  }
+  .modal-title{
+    font-size:30px;
+    line-height:1.05;
+  }
+  .modal-sub{
+    margin-bottom:20px;
+    padding-bottom:20px;
+  }
+  .modal-specs{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:8px;
+    margin-bottom:20px;
+  }
+  .mspec{
+    min-width:0;
+    padding:13px 12px;
+  }
+  .mspec label,
+  .mspec .sl{
+    font-size:9px;
+    letter-spacing:1.4px;
+    margin-bottom:6px;
+  }
+  .mspec span,
+  .mspec .sv{
+    display:block;
+    font-size:13px;
+    line-height:1.35;
+    overflow-wrap:anywhere;
+  }
+  .modal-close{
+    position:fixed;
+    top:12px;
+    right:12px;
+    width:38px;
+    height:38px;
+    z-index:2100;
+  }
+}
+@media(max-width:420px){
+  .modal-main-img,
+  .modal-gallery-main{
+    height:66vw;
+    min-height:235px;
+  }
+  .modal-panel{
+    padding:24px 16px 36px;
+  }
+  .modal-title{
+    font-size:27px;
+  }
+  .modal-thumb,
+  .gallery-thumb{
+    width:62px;
+    height:46px;
+  }
+}
+/* === FIN AJUSTE FICHAS DE INVENTARIO === */
 </style>
 </head>
 <body>
@@ -155,19 +325,19 @@ header{background:rgba(0,0,0,0.97);display:flex;align-items:center;justify-conte
 
 <div class="inv-hero">
   <h1>Inventario <span>Completo</span></h1>
-  <p>Explora toda nuestra gama de vehÃ­culos disponibles en Showroom Palmas 810</p>
+  <p>Explora toda nuestra gama de vehículos disponibles en Showroom Palmas 810</p>
 </div>
 
 <div class="filtros-wrap">
   <div class="filtros-inner">
     <div class="search-wrap">
       <i class="fas fa-search"></i>
-      <input type="text" placeholder="Buscar vehÃ­culo..." oninput="buscar(this.value)" id="search-input">
+      <input type="text" placeholder="Buscar vehículo..." oninput="buscar(this.value)" id="search-input">
     </div>
     <button class="f-btn active" data-cat="todos" onclick="filtrar('todos',this)">Todos</button>
     <button class="f-btn" data-cat="blindado" onclick="filtrar('blindado',this)">Blindados</button>
     <button class="f-btn" data-cat="exclusivo" onclick="filtrar('exclusivo',this)">Exclusivos</button>
-    <button class="f-btn" data-cat="clasico" onclick="filtrar('clasico',this)">ClÃ¡sicos</button>
+    <button class="f-btn" data-cat="clasico" onclick="filtrar('clasico',this)">Clásicos</button>
     <span class="resultado-count" id="count"></span>
   </div>
 </div>
@@ -219,7 +389,7 @@ let catActual = "todos";
 let busquedaActual = "";
 
 const INVENTARIO = [
-  {img:'img/CADILLAC-ESCALADE-BLANCA-6188/IMG_9573.jpg',imgs:['img/CADILLAC-ESCALADE-BLANCA-6188/IMG_9513.jpg','img/CADILLAC-ESCALADE-BLANCA-6188/IMG_9514.jpg','img/CADILLAC-ESCALADE-BLANCA-6188/IMG_9569.jpg','img/CADILLAC-ESCALADE-BLANCA-6188/IMG_9573.jpg','img/CADILLAC-ESCALADE-BLANCA-6188/IMG_9575.jpg','img/CADILLAC-ESCALADE-BLANCA-6188/IMG_9580.jpg','img/CADILLAC-ESCALADE-BLANCA-6188/IMG_9584.jpg','img/CADILLAC-ESCALADE-BLANCA-6188/IMG_9592.jpg','img/CADILLAC-ESCALADE-BLANCA-6188/IMG_9596.jpg','img/CADILLAC-ESCALADE-BLANCA-6188/IMG_9597.jpg','img/CADILLAC-ESCALADE-BLANCA-6188/IMG_9604.jpg','img/CADILLAC-ESCALADE-BLANCA-6188/IMG_9609.jpg','img/CADILLAC-ESCALADE-BLANCA-6188/IMG_9613.jpg','img/CADILLAC-ESCALADE-BLANCA-6188/IMG_9628.jpg','img/CADILLAC-ESCALADE-BLANCA-6188/IMG_9630.jpg','img/CADILLAC-ESCALADE-BLANCA-6188/IMG_9636.jpg','img/CADILLAC-ESCALADE-BLANCA-6188/IMG_9642.jpg','img/CADILLAC-ESCALADE-BLANCA-6188/IMG_9646.jpg'],titulo:"Cadillac Escalade",cat:"blindado",anio:"Consultar",km:"Consultar",badge:"Blindado",specs:[{l:"Color",v:"Blanco"},{l:"Placas",v:"6188"},{l:"Nivel Blindaje",v:"Consultar"},{l:"Tracción",v:"AWD"}],wa:"Hola, me interesa la Cadillac Escalade Blanca (6188) del Showroom TPS Armoring Palmas 810"},
+  {img:'img/CADILLAC-ESCALADE-BLANCA-6188/IMG_9573.jpg',imgs:['img/CADILLAC-ESCALADE-BLANCA-6188/IMG_9569.jpg','img/CADILLAC-ESCALADE-BLANCA-6188/IMG_9573.jpg','img/CADILLAC-ESCALADE-BLANCA-6188/IMG_9575.jpg','img/CADILLAC-ESCALADE-BLANCA-6188/IMG_9580.jpg','img/CADILLAC-ESCALADE-BLANCA-6188/IMG_9584.jpg','img/CADILLAC-ESCALADE-BLANCA-6188/IMG_9592.jpg','img/CADILLAC-ESCALADE-BLANCA-6188/IMG_9596.jpg','img/CADILLAC-ESCALADE-BLANCA-6188/IMG_9597.jpg','img/CADILLAC-ESCALADE-BLANCA-6188/IMG_9604.jpg','img/CADILLAC-ESCALADE-BLANCA-6188/IMG_9609.jpg','img/CADILLAC-ESCALADE-BLANCA-6188/IMG_9613.jpg','img/CADILLAC-ESCALADE-BLANCA-6188/IMG_9628.jpg','img/CADILLAC-ESCALADE-BLANCA-6188/IMG_9630.jpg','img/CADILLAC-ESCALADE-BLANCA-6188/IMG_9636.jpg','img/CADILLAC-ESCALADE-BLANCA-6188/IMG_9642.jpg','img/CADILLAC-ESCALADE-BLANCA-6188/IMG_9646.jpg'],titulo:"Cadillac Escalade",cat:"blindado",anio:"Consultar",km:"Consultar",badge:"Blindado",specs:[{l:"Color",v:"Blanco"},{l:"Placas",v:"6188"},{l:"Nivel Blindaje",v:"Consultar"},{l:"Tracción",v:"AWD"}],wa:"Hola, me interesa la Cadillac Escalade Blanca (6188) del Showroom TPS Armoring Palmas 810"},
   {img:'img/ESCALADE-BLANCA-3914/IMG_26632.jpg',imgs:['img/ESCALADE-BLANCA-3914/IMG_26632.jpg','img/ESCALADE-BLANCA-3914/IMG_26692.jpg','img/ESCALADE-BLANCA-3914/IMG_26702.jpg','img/ESCALADE-BLANCA-3914/IMG_26712.jpg','img/ESCALADE-BLANCA-3914/IMG_26752.jpg','img/ESCALADE-BLANCA-3914/IMG_26772.jpg','img/ESCALADE-BLANCA-3914/IMG_26812.JPG','img/ESCALADE-BLANCA-3914/IMG_26852.jpg','img/ESCALADE-BLANCA-3914/IMG_7834.jpg','img/ESCALADE-BLANCA-3914/IMG_7835.jpg','img/ESCALADE-BLANCA-3914/IMG_7836.jpg','img/ESCALADE-BLANCA-3914/IMG_7837.jpg','img/ESCALADE-BLANCA-3914/IMG_7838.jpg','img/ESCALADE-BLANCA-3914/IMG_7839.JPG','img/ESCALADE-BLANCA-3914/IMG_7840.jpg','img/ESCALADE-BLANCA-3914/IMG_7841.jpg','img/ESCALADE-BLANCA-3914/IMG_7842.JPG','img/ESCALADE-BLANCA-3914/IMG_7843.jpg','img/ESCALADE-BLANCA-3914/IMG_7844.JPG','img/ESCALADE-BLANCA-3914/IMG_7845.jpg','img/ESCALADE-BLANCA-3914/IMG_7846.jpg','img/ESCALADE-BLANCA-3914/IMG_7847.jpg','img/ESCALADE-BLANCA-3914/IMG_7848.jpg','img/ESCALADE-BLANCA-3914/IMG_7849.jpg','img/ESCALADE-BLANCA-3914/IMG_7850.jpg','img/ESCALADE-BLANCA-3914/IMG_7851.jpg'],titulo:"Cadillac Escalade",cat:"blindado",anio:"Consultar",km:"Consultar",badge:"Blindado",specs:[{l:"Color",v:"Blanco"},{l:"Placas",v:"3914"},{l:"Nivel Blindaje",v:"Consultar"},{l:"Tracción",v:"AWD"}],wa:"Hola, me interesa la Cadillac Escalade Blanca (3914) del Showroom TPS Armoring Palmas 810"},
   {img:'img/SUBURBAN-NEGRA-2724/IMG_9833.jpg',imgs:['img/SUBURBAN-NEGRA-2724/IMG_9833.jpg','img/SUBURBAN-NEGRA-2724/IMG_9835.jpg','img/SUBURBAN-NEGRA-2724/IMG_9837.jpg','img/SUBURBAN-NEGRA-2724/IMG_9839.jpg','img/SUBURBAN-NEGRA-2724/IMG_9841.jpg','img/SUBURBAN-NEGRA-2724/IMG_9845.jpg','img/SUBURBAN-NEGRA-2724/IMG_9849.jpg','img/SUBURBAN-NEGRA-2724/IMG_9851.jpg','img/SUBURBAN-NEGRA-2724/IMG_9856.jpg','img/SUBURBAN-NEGRA-2724/IMG_9859.jpg','img/SUBURBAN-NEGRA-2724/IMG_9860.jpg','img/SUBURBAN-NEGRA-2724/IMG_9862.jpg'],titulo:"Chevrolet Suburban",cat:"blindado",anio:"Consultar",km:"Consultar",badge:"Blindado",specs:[{l:"Color",v:"Negra"},{l:"Placas",v:"2724"},{l:"Nivel Blindaje",v:"Consultar"},{l:"Tracción",v:"4x4"}],wa:"Hola, me interesa la Chevrolet Suburban Negra (2724) del Showroom TPS Armoring Palmas 810"},
   {img:'img/SUBURBAN-NEGRA-7487/IMG_9713.jpg',imgs:['img/SUBURBAN-NEGRA-7487/IMG_5019.jpg','img/SUBURBAN-NEGRA-7487/IMG_5020.jpg','img/SUBURBAN-NEGRA-7487/IMG_5039.jpg','img/SUBURBAN-NEGRA-7487/IMG_9713.jpg','img/SUBURBAN-NEGRA-7487/IMG_9716.jpg','img/SUBURBAN-NEGRA-7487/IMG_9719.jpg','img/SUBURBAN-NEGRA-7487/IMG_9721.jpg','img/SUBURBAN-NEGRA-7487/IMG_9726.jpg','img/SUBURBAN-NEGRA-7487/IMG_9727.jpg'],titulo:"Chevrolet Suburban",cat:"blindado",anio:"Consultar",km:"Consultar",badge:"Blindado",specs:[{l:"Color",v:"Negra"},{l:"Placas",v:"7487"},{l:"Nivel Blindaje",v:"Consultar"},{l:"Tracción",v:"4x4"}],wa:"Hola, me interesa la Chevrolet Suburban Negra (7487) del Showroom TPS Armoring Palmas 810"},
@@ -240,9 +410,9 @@ function renderizar(){
     const busOk = c.titulo.toLowerCase().includes(busquedaActual.toLowerCase());
     return catOk && busOk;
   }).sort((a,b) => (orden[a.cat] ?? 9) - (orden[b.cat] ?? 9));
-  count.textContent = lista.length + ' vehÃ­culo' + (lista.length !== 1 ? 's' : '');
+  count.textContent = lista.length + ' vehículo' + (lista.length !== 1 ? 's' : '');
   if(!lista.length){
-    grid.innerHTML = `<div class="no-results"><i class="fas fa-car"></i><p>No se encontraron vehÃ­culos</p></div>`;
+    grid.innerHTML = `<div class="no-results"><i class="fas fa-car"></i><p>No se encontraron vehículos</p></div>`;
     return;
   }
   grid.innerHTML = lista.map((c,i) => {
@@ -297,11 +467,11 @@ function abrir(i){
   const c = INVENTARIO[i];
   const carpeta = c.carpeta ? 'img/' + c.carpeta + '/' : 'img/';
   gFotos = (c.imgs || [c.img]).map(f => f.startsWith('img/') ? f : carpeta + f);
-  gIdx = 0;
-  document.getElementById('m-img').src = gFotos[0];
+  gIdx = Math.max(0, gFotos.indexOf(c.img));
+  document.getElementById('m-img').src = c.img;
   document.getElementById('m-img').alt = c.titulo;
   const thumbs = document.getElementById('m-thumbs');
-  thumbs.innerHTML = gFotos.map((f,i) => `<img class="gallery-thumb${i===0?' active':''}" src="${f}" loading="lazy" onclick="irFoto(${i})">`).join('');
+  thumbs.innerHTML = gFotos.map((f,i) => `<img class="gallery-thumb${i===gIdx?' active':''}" src="${f}" loading="lazy" onclick="irFoto(${i})">`).join('');
   const arrows = document.querySelectorAll('.gallery-arrow');
   arrows.forEach(a => a.classList.toggle('hidden', gFotos.length <= 1));
   document.getElementById('m-titulo').textContent = c.titulo;
