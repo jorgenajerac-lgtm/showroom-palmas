@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>TPS Armoring – Show Room Palmas 810 CDMX</title>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;500;600&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
@@ -52,7 +52,7 @@ nav a.active{color:#fff;border-bottom:1px solid var(--naranja);padding-bottom:2p
   display:flex;align-items:flex-start;padding:40px 80px;overflow:hidden;
 }
 .hero-cars-bg{position:absolute;inset:0;overflow:hidden;}
-.hero-cars-bg video{width:100%;height:100%;object-fit:cover;filter:brightness(0.45);}
+.hero-cars-bg video{width:100%;height:110%;object-fit:cover;filter:brightness(0.45);object-position:center top;}
 .hero-content{position:relative;z-index:2;max-width:580px;}
 .hero-badge{display:inline-flex;align-items:center;gap:8px;background:transparent;border:0;border-left:1px solid #D66A11;color:#D66A11!important;padding:4px 0 4px 14px;border-radius:0;font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:20px;}
 .hero h1{font-family:'Bebas Neue',sans-serif;color:#fff;font-size:108px;font-weight:700;line-height:1.0;text-transform:uppercase;margin-bottom:8px;}
@@ -346,6 +346,19 @@ footer{background:var(--negro);padding:48px 48px 24px;border-top:1px solid rgba(
   .modal-thumb{width:64px;height:48px;}
   .modal-close{top:12px;right:12px;width:36px;height:36px;font-size:14px;}
 }
+
+/* ANIMACIÓN CARDS */
+@keyframes slideInCard{
+  from{opacity:0;transform:translateX(-40px);}
+  to{opacity:1;transform:translateX(0);}
+}
+.car-card.animado{
+  animation:slideInCard 0.5s ease both;
+}
+.car-card.animado:nth-child(1){animation-delay:0s;}
+.car-card.animado:nth-child(2){animation-delay:0.1s;}
+.car-card.animado:nth-child(3){animation-delay:0.2s;}
+.car-card.animado:nth-child(4){animation-delay:0.3s;}
 
 /* WA FLOAT */
 .wa-float{position:fixed;bottom:28px;right:28px;background:#25d366;color:#fff;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,0.5);z-index:999;transition:transform 0.2s;}
@@ -691,7 +704,7 @@ footer{background:var(--negro);padding:48px 48px 24px;border-top:1px solid rgba(
     <a href="#showroom">Showroom</a>
     <a href="#nosotros">Nosotros</a>
     <a href="#ubicacion">Ubicacion</a>
-    <a href="https://wa.me/5215574495611" class="btn-cotiza"><i class="fab fa-whatsapp"></i> Cotiza Ahora</a>
+    <a href="https://wa.me/528180391792" class="btn-cotiza"><i class="fab fa-whatsapp"></i> Cotiza Ahora</a>
   </nav>
 </header>
 
@@ -708,7 +721,7 @@ footer{background:var(--negro);padding:48px 48px 24px;border-top:1px solid rgba(
     <p class="hero-sub">Nuestro espacio exclusivo en el coraz&oacute;n de Lomas de Chapultepec. Veh&iacute;culos blindados, exclusivos y cl&aacute;sicos con atenci&oacute;n personalizada.</p>
     <div class="hero-btns">
       <a href="#inventario" class="btn-hero-p"><i class="fas fa-car"></i> Ver Inventario</a>
-      <a href="https://wa.me/5215574495611" class="btn-hero-s" target="_blank"><i class="fab fa-whatsapp"></i> Hablar con un Asesor</a>
+      <a href="https://wa.me/528180391792" class="btn-hero-s" target="_blank"><i class="fab fa-whatsapp"></i> Hablar con un Asesor</a>
     </div>
     <div class="hero-stats">
       <div class="hero-stat"><span class="num">+500</span><span class="lbl">Veh&iacute;culos Blindados</span></div>
@@ -717,6 +730,7 @@ footer{background:var(--negro);padding:48px 48px 24px;border-top:1px solid rgba(
     </div>
   </div>
 </section>
+
 
 
 <!-- TABS -->
@@ -734,7 +748,7 @@ footer{background:var(--negro);padding:48px 48px 24px;border-top:1px solid rgba(
   <div class="sec-header">
     <h2 class="sec-title">Nuestro <span>Inventario</span></h2>
   </div>
-  <div class="carousel-wrap">
+<div class="carousel-wrap">
     <button class="carousel-btn prev" id="carousel-prev" onclick="moverCarrusel(-1)"><i class="fas fa-chevron-left"></i></button>
     <div class="cars-grid" id="cars-grid"></div>
     <button class="carousel-btn next" id="carousel-next" onclick="moverCarrusel(1)"><i class="fas fa-chevron-right"></i></button>
@@ -757,7 +771,7 @@ footer{background:var(--negro);padding:48px 48px 24px;border-top:1px solid rgba(
       <div class="strip-feat"><i class="fas fa-calendar-check"></i><span>Citas disponibles de lunes a s&aacute;bado</span></div>
       <div class="strip-feat"><i class="fas fa-map-marker-alt"></i><span>Av. Paseo de las Palmas 810, CDMX</span></div>
     </div>
-    <a href="https://wa.me/5215574495611?text=Hola,%20quiero%20agendar%20una%20visita%20al%20Showroom" class="btn-strip" target="_blank">
+    <a href="https://wa.me/528180391792?text=Hola,%20quiero%20agendar%20una%20visita%20al%20Showroom" class="btn-strip" target="_blank">
       <i class="fas fa-calendar-alt"></i> Agendar Visita
     </a>
   </div>
@@ -782,8 +796,8 @@ footer{background:var(--negro);padding:48px 48px 24px;border-top:1px solid rgba(
   <h2>&iquest;Listo para <span>Proteger</span><br>lo que m&aacute;s Importa?</h2>
   <p>Habla ahora con uno de nuestros asesores y recibe una cotizaci&oacute;n personalizada sin compromiso.</p>
   <div class="cta-btns">
-    <a href="https://wa.me/5215574495611?text=Hola,%20me%20interesa%20informaci%C3%B3n%20sobre%20blindaje" class="btn-wa" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp Directo</a>
-    <a href="tel:+5215574495611" class="btn-tel"><i class="fas fa-phone"></i> 55 7449 5611</a>
+    <a href="https://wa.me/528180391792?text=Hola,%20me%20interesa%20informaci%C3%B3n%20sobre%20blindaje" class="btn-wa" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp Directo</a>
+    <a href="tel:+528180391792" class="btn-tel"><i class="fas fa-phone"></i> 81 8039 1792</a>
   </div>
 </section>
 
@@ -794,7 +808,7 @@ footer{background:var(--negro);padding:48px 48px 24px;border-top:1px solid rgba(
     <p class="loc-sub">Showroom abierto de lunes a s&aacute;bado</p>
     <div class="loc-item"><i class="fas fa-map-marker-alt"></i><div><strong>Direcci&oacute;n</strong><span>Av. Paseo de las Palmas 810, Lomas de Chapultepec,<br>Miguel Hidalgo, 11000 CDMX</span></div></div>
     <div class="loc-item"><i class="fas fa-clock"></i><div><strong>Horario</strong><span>Lun&ndash;Vie: 9:00&ndash;19:00 hrs &middot; S&aacute;b: 9:00&ndash;14:00 hrs</span></div></div>
-    <div class="loc-item"><i class="fab fa-whatsapp"></i><div><strong>WhatsApp</strong><span>55 7449 5611</span></div></div>
+    <div class="loc-item"><i class="fab fa-whatsapp"></i><div><strong>WhatsApp</strong><span>81 8039 1792</span></div></div>
     <div class="loc-item"><i class="fas fa-envelope"></i><div><strong>Email</strong><span>palmas@tps.com.mx</span></div></div>
   </div>
   <div class="map-wrap">
@@ -809,9 +823,25 @@ footer{background:var(--negro);padding:48px 48px 24px;border-top:1px solid rgba(
       <h4>TPS Armoring</h4>
       <p>La blindadora de &eacute;lite m&aacute;s reconocida de M&eacute;xico. Seguridad, tecnolog&iacute;a y exclusividad en cada veh&iacute;culo.</p>
     </div>
-    <div class="f-col"><h4>Veh&iacute;culos</h4><a href="#">Blindados</a><a href="#">Exclusivos</a><a href="#">Cl&aacute;sicos</a><a href="#">Ver Inventario</a></div>
-    <div class="f-col"><h4>Servicios</h4><a href="#">Blindaje Nuevo</a><a href="#">Blindaje Usado</a><a href="#">Cotizaci&oacute;n</a><a href="#">Postventa</a></div>
-    <div class="f-col"><h4>Empresa</h4><a href="#">Nosotros</a><a href="#">Showroom</a><a href="#">Certificaciones</a><a href="#">Contacto</a></div>
+    <div class="f-col">
+      <h4>Inventario</h4>
+      <a href="inventario.html">Ver todo el inventario</a>
+      <a href="inventario.html?cat=blindado">Blindados</a>
+      <a href="inventario.html?cat=exclusivo">Exclusivos</a>
+      <a href="inventario.html?cat=clasico">Cl&aacute;sicos</a>
+    </div>
+    <div class="f-col">
+      <h4>Showroom</h4>
+      <a href="#showroom">Conoce el Showroom</a>
+      <a href="#nosotros">&iquest;Por qu&eacute; TPS?</a>
+      <a href="#ubicacion">C&oacute;mo llegar</a>
+    </div>
+    <div class="f-col">
+      <h4>Contacto</h4>
+      <a href="https://wa.me/528180391792" target="_blank"><i class="fab fa-whatsapp" style="margin-right:6px;"></i>WhatsApp</a>
+      <a href="tel:+528180391792"><i class="fas fa-phone" style="margin-right:6px;"></i>81 8039 1792</a>
+      <a href="#ubicacion"><i class="fas fa-map-marker-alt" style="margin-right:6px;"></i>Palmas 810, CDMX</a>
+    </div>
   </div>
   <div class="footer-bottom">
     <p>&copy; 2025 TPS Armoring. Todos los derechos reservados.</p>
@@ -826,7 +856,7 @@ footer{background:var(--negro);padding:48px 48px 24px;border-top:1px solid rgba(
 </footer>
 
 <!-- WA FLOAT -->
-<a href="https://wa.me/5215574495611" class="wa-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+<a href="https://wa.me/528180391792" class="wa-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
 <!-- ADMIN FAB -->
 <button class="admin-fab" onclick="abrirAdmin()" title="Panel de Administraci&#243;n">
@@ -1025,7 +1055,7 @@ const INVENTARIO = [
 ];
 
 // Config
-const WA_NUM = "5215574495611";
+const WA_NUM = "528180391792";
 let catActual = "todos";
 let busquedaActual = "";
 let paginaActual = 0;
@@ -1067,7 +1097,7 @@ function renderCards() {
       ? `<span style="position:absolute;bottom:8px;right:8px;background:rgba(0,0,0,0.85);border:1px solid rgba(185,161,106,0.4);color:var(--naranja);font-size:8px;font-weight:700;letter-spacing:2px;padding:3px 8px;text-transform:uppercase;">${c._status.toUpperCase()}</span>`
       : "";
     return `
-    <div class="car-card" onclick="abrir(${realIdx})">
+    <div class="car-card animado" onclick="abrir(${realIdx})">
       <div class="car-img-wrap">
         <img src="${c.img}" alt="${c.titulo}" loading="lazy">
         <span class="cbadge ${c.cat}">${badgeLabel(c.cat)}</span>
@@ -1148,7 +1178,7 @@ function abrir(i) {
   const thumbsEl = document.getElementById("m-thumbs");
   if(imgs.length > 1) {
     thumbsEl.innerHTML = imgs.map((src, idx) =>
-      `<img class="gallery-thumb${idx===mIdx?' active':''}" src="${src}" onclick="irFoto(${idx})">`
+      `<img class="gallery-thumb${idx===mIdx?' active':''}" src="${src}" loading="lazy" onclick="irFoto(${idx})">`
     ).join("");
     thumbsEl.style.display = "flex";
   } else {
