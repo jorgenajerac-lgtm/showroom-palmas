@@ -33,7 +33,7 @@ header{
 .logo-wrap{display:flex;align-items:center;}
 .logo-wrap img{height:76px;width:auto;max-width:300px;display:block;opacity:0;transform:translateY(-14px) scale(0.96);animation:logoIntro 0.9s ease forwards;}
 @keyframes logoIntro{to{opacity:1;transform:translateY(0) scale(1);}}
-nav{display:flex;align-items:center;gap:26px;}
+nav{display:flex;align-items:center;gap:26px;margin-left:auto;padding-left:80px;}
 nav a{color:#d8d2c4;text-decoration:none;font-family:'Montserrat',sans-serif;font-size:10px;font-weight:500;letter-spacing:2.4px;text-transform:uppercase;transition:color 0.2s;}
 nav a:hover{color:#fff;}
 nav a.active{color:#fff;border-bottom:1px solid var(--naranja);padding-bottom:2px;}
@@ -448,9 +448,27 @@ footer{background:var(--negro);padding:48px 48px 24px;border-top:1px solid rgba(
 @media(max-width:1100px){
   .why-grid{grid-template-columns:repeat(2,1fr);}
   .footer-grid{grid-template-columns:1fr 1fr;gap:28px;}
-  .modal{grid-template-columns:1fr;max-height:95vh;overflow-y:auto;}
-  .modal-gallery{min-height:260px;height:260px;}
   .admin-form-grid{grid-template-columns:1fr;}
+  /* TABLET: 2 columnas de tarjetas */
+  .cars-grid{grid-template-columns:repeat(2,1fr);gap:16px;}
+  .car-img-wrap{height:220px;}
+  .inv-section{padding:40px 28px;}
+  .cats-wrap{padding:0 28px;}
+  /* MODAL TABLET */
+  .modal{grid-template-columns:1fr;overflow-y:auto;}
+  .modal-gallery{min-height:auto;height:auto;justify-content:flex-start;}
+  .modal-gallery-main{height:52vw;min-height:300px;max-height:480px;}
+  .gallery-thumbs{padding:10px 12px;gap:6px;}
+  .gallery-thumb{width:68px;height:50px;}
+  .modal-panel{padding:32px 28px;min-height:auto;justify-content:flex-start;}
+  .modal-title{font-size:36px;}
+  /* STRIP TABLET */
+  .strip{grid-template-columns:1fr;}
+  .strip-img{height:280px;}
+  .strip-content{padding:36px 32px;}
+  /* HERO TABLET */
+  .hero{padding:48px 40px;}
+  .hero h1{font-size:72px;}
 }
 @media(max-width:768px){
   header{padding:0 20px;height:82px;}
@@ -466,7 +484,7 @@ footer{background:var(--negro);padding:48px 48px 24px;border-top:1px solid rgba(
   .hero-stat .num{font-size:22px;}
   .cats-wrap{padding:0 16px;}
   .inv-section{padding:40px 20px;}
-  .cars-grid{display:grid;grid-template-columns:1fr;gap:12px;}
+  .cars-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;}
   .carousel-btn{display:flex!important;}
   .carousel-btn.prev{left:-14px;}
   .carousel-btn.next{right:-14px;}
@@ -517,7 +535,7 @@ footer{background:var(--negro);padding:48px 48px 24px;border-top:1px solid rgba(
 }
 .modal-img-wrap img,
 .modal-gallery-main img{
-  object-fit:contain;
+  object-fit:cover;
   object-position:center;
 }
 .modal-thumbs,
@@ -525,6 +543,11 @@ footer{background:var(--negro);padding:48px 48px 24px;border-top:1px solid rgba(
   box-sizing:border-box;
   padding:10px 16px;
   background:#fff;
+  display:flex;
+  flex-wrap:nowrap;
+  overflow-x:auto;
+  gap:8px;
+  width:100%;
 }
 @media(max-width:1024px){
   .modal{
@@ -683,10 +706,20 @@ footer{background:var(--negro);padding:48px 48px 24px;border-top:1px solid rgba(
 /* === FIN AJUSTE IMAGEN PRINCIPAL SIN BORDE === */
 
 /* === VISOR DE ZOOM DE LA FICHA === */
-.zoom-overlay{display:none;position:fixed;inset:0;background:#000;z-index:9999;align-items:center;justify-content:center;overflow:hidden;}
-.zoom-overlay.open{display:flex;}
-.zoom-overlay img{max-width:100vw;max-height:100vh;width:auto;height:auto;object-fit:contain;display:block;touch-action:pinch-zoom;}
+.zoom-overlay{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:#000;z-index:9999;}
+.zoom-overlay.open{display:flex;align-items:center;justify-content:center;}
+.zoom-img-wrap{position:relative;display:flex;align-items:center;justify-content:center;width:100%;height:100%;}
+.zoom-img-wrap img{max-width:100vw;max-height:100vh;width:auto;height:auto;object-fit:contain;display:block;touch-action:pinch-zoom;}
 .zoom-close{position:absolute;top:16px;right:16px;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.25);color:#fff;width:42px;height:42px;border-radius:50%;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:2;}
+.zoom-arrow{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,0.5);border:none;color:#fff;width:48px;height:48px;font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:10;transition:background 0.2s;}
+.zoom-arrow:hover{background:rgba(214,106,17,0.85);}
+.zoom-prev{left:16px;}
+.zoom-next{right:16px;}
+@media(max-width:1024px){
+  .zoom-overlay.open{display:block;background:transparent;backdrop-filter:brightness(0.15);-webkit-backdrop-filter:brightness(0.15);}
+  .zoom-img-wrap{display:block;height:auto;}
+  .zoom-img-wrap img{width:100%;height:auto;max-width:100vw;max-height:none;}
+}
 /* === FIN VISOR DE ZOOM DE LA FICHA === */
 </style>
 </head>
@@ -866,7 +899,11 @@ footer{background:var(--negro);padding:48px 48px 24px;border-top:1px solid rgba(
 <!-- ZOOM DE IMAGEN -->
 <div class="zoom-overlay" id="zoom-overlay" onclick="cerrarZoom()">
   <button class="zoom-close" onclick="cerrarZoom()" aria-label="Cerrar imagen"><i class="fas fa-times"></i></button>
-  <img id="zoom-img" src="" alt="Vista ampliada" onclick="event.stopPropagation()">
+  <div class="zoom-img-wrap" onclick="event.stopPropagation()">
+    <img id="zoom-img" src="" alt="Vista ampliada">
+    <button class="zoom-arrow zoom-prev" onclick="event.stopPropagation();zoomNavegar(-1)"><i class="fas fa-chevron-left"></i></button>
+    <button class="zoom-arrow zoom-next" onclick="event.stopPropagation();zoomNavegar(1)"><i class="fas fa-chevron-right"></i></button>
+  </div>
 </div>
 <!-- MODAL -->
 <div class="overlay" id="overlay" onclick="cerrarFuera(event)">
@@ -983,7 +1020,7 @@ footer{background:var(--negro);padding:48px 48px 24px;border-top:1px solid rgba(
 <script>
 const INVENTARIO = [
   {
-    img:'img/CADILLAC-ESCALADE-BLANCA-6188/IMG_9573.jpg',
+    img:'img/CADILLAC-ESCALADE-BLANCA-6188/IMG_9569.jpg',
     imgs:['img/CADILLAC-ESCALADE-BLANCA-6188/IMG_9569.jpg','img/CADILLAC-ESCALADE-BLANCA-6188/IMG_9573.jpg','img/CADILLAC-ESCALADE-BLANCA-6188/IMG_9575.jpg','img/CADILLAC-ESCALADE-BLANCA-6188/IMG_9580.jpg','img/CADILLAC-ESCALADE-BLANCA-6188/IMG_9584.jpg','img/CADILLAC-ESCALADE-BLANCA-6188/IMG_9592.jpg','img/CADILLAC-ESCALADE-BLANCA-6188/IMG_9596.jpg','img/CADILLAC-ESCALADE-BLANCA-6188/IMG_9597.jpg','img/CADILLAC-ESCALADE-BLANCA-6188/IMG_9604.jpg','img/CADILLAC-ESCALADE-BLANCA-6188/IMG_9609.jpg','img/CADILLAC-ESCALADE-BLANCA-6188/IMG_9613.jpg','img/CADILLAC-ESCALADE-BLANCA-6188/IMG_9628.jpg','img/CADILLAC-ESCALADE-BLANCA-6188/IMG_9630.jpg','img/CADILLAC-ESCALADE-BLANCA-6188/IMG_9636.jpg','img/CADILLAC-ESCALADE-BLANCA-6188/IMG_9642.jpg','img/CADILLAC-ESCALADE-BLANCA-6188/IMG_9646.jpg'],
     titulo:"Cadillac Escalade",cat:"blindado",anio:"Consultar",km:"Consultar",badge:"Blindado",
     specs:[{l:"Color",v:"Blanco"},{l:"Placas",v:"6188"},{l:"Nivel Blindaje",v:"Consultar"},{l:"Tracción",v:"AWD"}],
@@ -1203,12 +1240,28 @@ function abrirZoom() {
   const ampliada = document.getElementById("zoom-img");
   if (!principal || !ampliada || !principal.src) return;
   ampliada.src = principal.src;
-  document.getElementById("zoom-overlay").classList.add("open");
+  const zo = document.getElementById("zoom-overlay");
+  zo.style.height = window.innerHeight + "px";
+  zo.style.width = window.innerWidth + "px";
+  zo.classList.add("open");
 }
 function cerrarZoom() {
   const zoom = document.getElementById("zoom-overlay");
   if (zoom) zoom.classList.remove("open");
 }
+function zoomNavegar(dir) {
+  mIdx = (mIdx + dir + mFotos.length) % mFotos.length;
+  document.getElementById("zoom-img").src = mFotos[mIdx];
+  document.getElementById("m-img").src = mFotos[mIdx];
+  document.querySelectorAll(".gallery-thumb").forEach((t,i) => t.classList.toggle("active", i === mIdx));
+}
+// Swipe táctil en zoom
+let zSwipeX = 0;
+document.getElementById("zoom-overlay").addEventListener("touchstart", e => { zSwipeX = e.touches[0].clientX; }, {passive:true});
+document.getElementById("zoom-overlay").addEventListener("touchend", e => {
+  const diff = zSwipeX - e.changedTouches[0].clientX;
+  if(Math.abs(diff) > 40) zoomNavegar(diff > 0 ? 1 : -1);
+}, {passive:true});
 function cerrar() {
   document.getElementById("overlay").classList.remove("open");
   document.body.style.overflow = "";
