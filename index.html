@@ -731,9 +731,9 @@ footer{background:var(--negro);padding:48px 48px 24px;border-top:1px solid rgba(
 .zoom-prev{left:16px;}
 .zoom-next{right:16px;}
 @media(max-width:1024px){
-  .zoom-overlay.open{display:block;background:transparent;backdrop-filter:brightness(0.15);-webkit-backdrop-filter:brightness(0.15);}
-  .zoom-img-wrap{display:block;height:auto;}
-  .zoom-img-wrap img{width:100%;height:auto;max-width:100vw;max-height:none;}
+  .zoom-overlay.open{display:flex;flex-direction:column;align-items:center;justify-content:center;background:transparent;backdrop-filter:brightness(0.15);-webkit-backdrop-filter:brightness(0.15);}
+  .zoom-img-wrap{display:flex;align-items:center;justify-content:center;width:100%;height:100%;}
+  .zoom-img-wrap img{width:100%;height:auto;max-width:100vw;max-height:100vh;object-fit:contain;}
 }
 /* === FIN VISOR DE ZOOM DE LA FICHA === */
 </style>
