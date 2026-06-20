@@ -260,6 +260,8 @@ footer{background:var(--negro);padding:48px 48px 24px;border-top:1px solid rgba(
   text-transform:uppercase;padding:5px 14px;
   z-index:2;
 }
+.modal-badge-luxury.exclusivo{background:#1a1a8c;}
+.modal-badge-luxury.clasico{background:#2c6e49;}
 .modal-zoom-hint{
   position:absolute;bottom:20px;left:50%;transform:translateX(-50%);
   background:rgba(0,0,0,0.5);color:#fff;
@@ -282,17 +284,17 @@ footer{background:var(--negro);padding:48px 48px 24px;border-top:1px solid rgba(
 }
 .modal-close:hover{background:var(--naranja);border-color:var(--naranja);color:#fff;}
 .modal-eyebrow{
-  font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;
+  font-family:'Montserrat',sans-serif;font-size:13px;font-weight:700;
   letter-spacing:3px;text-transform:uppercase;
   color:var(--naranja);margin-bottom:12px;
 }
 .modal-title{
-  font-family:'Bebas Neue',sans-serif;font-size:48px;font-weight:700;
+  font-family:'Bebas Neue',sans-serif;font-size:52px;font-weight:700;
   color:#1a1510;text-transform:uppercase;line-height:1.0;
   margin-bottom:8px;
 }
 .modal-sub{
-  color:#555;font-size:14px;letter-spacing:1.5px;
+  color:#555;font-size:19px;letter-spacing:1.5px;
   text-transform:uppercase;margin-bottom:32px;
   padding-bottom:32px;border-bottom:1px solid #eee;
 }
@@ -301,17 +303,17 @@ footer{background:var(--negro);padding:48px 48px 24px;border-top:1px solid rgba(
 .modal-price{font-family:'Bebas Neue',sans-serif;font-size:42px;font-weight:700;color:#1a1510;line-height:1;}
 .modal-price small{font-size:16px;color:var(--naranja);font-weight:600;margin-left:6px;letter-spacing:2px;}
 .modal-divider{border:none;border-top:1px solid #eee;margin:0 0 28px 0;}
-.modal-specs-title{font-family:'Montserrat',sans-serif;font-size:12px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#555;margin-bottom:16px;}
+.modal-specs-title{font-family:'Montserrat',sans-serif;font-size:13px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#555;margin-bottom:16px;}
 .modal-specs{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:32px;}
 .mspec{background:#fafafa;border:1px solid #eee;padding:16px;transition:border-color 0.2s;}
 .mspec:hover{border-color:var(--naranja);}
-.mspec label{display:block;color:#aaa;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;}
-.mspec span{font-family:'Montserrat',sans-serif;font-size:18px;font-weight:700;color:#1a1510;}
+.mspec label{display:block;color:#aaa;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;}
+.mspec span{font-family:'Montserrat',sans-serif;font-size:20px;font-weight:700;color:#1a1510;}
 .modal-btns{display:flex;gap:10px;flex-direction:column;}
 .mbtn-wa{
   background:#fff;color:#1a1510;padding:14px;
   border-radius:0;font-family:'Montserrat',sans-serif;
-  font-size:11px;font-weight:600;text-decoration:none;
+  font-size:13px;font-weight:600;text-decoration:none;
   text-align:center;display:flex;align-items:center;
   justify-content:center;gap:8px;transition:all 0.2s;
   letter-spacing:2px;text-transform:uppercase;
@@ -321,7 +323,7 @@ footer{background:var(--negro);padding:48px 48px 24px;border-top:1px solid rgba(
 .mbtn-close{
   background:transparent;color:#aaa;padding:14px;
   border:1px solid #eee;font-family:'Montserrat',sans-serif;
-  font-size:11px;font-weight:600;cursor:pointer;
+  font-size:13px;font-weight:600;cursor:pointer;
   transition:all 0.2s;letter-spacing:2px;text-transform:uppercase;
 }
 .mbtn-close:hover{border-color:#ccc;color:#555;}
@@ -750,7 +752,7 @@ footer{background:var(--negro);padding:48px 48px 24px;border-top:1px solid rgba(
     <a href="#showroom">Showroom</a>
     <a href="#nosotros">Nosotros</a>
     <a href="#ubicacion">Ubicacion</a>
-    <a href="https://wa.me/528180391792" class="btn-cotiza"><i class="fab fa-whatsapp"></i> Cotiza Ahora</a>
+    <a href="https://wa.me/528180391792?text=Hola%2C%20quiero%20agendar%20una%20visita%20al%20Showroom" class="btn-cotiza"><i class="fab fa-whatsapp"></i> Cotiza Ahora</a>
   </nav>
 </header>
 
@@ -767,7 +769,7 @@ footer{background:var(--negro);padding:48px 48px 24px;border-top:1px solid rgba(
     <p class="hero-sub">Nuestro espacio exclusivo en el coraz&oacute;n de Lomas de Chapultepec. Veh&iacute;culos blindados, exclusivos y cl&aacute;sicos con atenci&oacute;n personalizada.</p>
     <div class="hero-btns">
       <a href="#inventario" class="btn-hero-p"><i class="fas fa-car"></i> Ver Inventario</a>
-      <a href="https://wa.me/528180391792" class="btn-hero-s" target="_blank"><i class="fab fa-whatsapp"></i> Hablar con un Asesor</a>
+      <a href="https://wa.me/528180391792?text=Hola%2C%20quiero%20agendar%20una%20visita%20al%20Showroom" class="btn-hero-s" target="_blank"><i class="fab fa-whatsapp"></i> Hablar con un Asesor</a>
     </div>
     <div class="hero-stats">
       <div class="hero-stat"><span class="num">+500</span><span class="lbl">Veh&iacute;culos Blindados</span></div>
@@ -884,7 +886,7 @@ footer{background:var(--negro);padding:48px 48px 24px;border-top:1px solid rgba(
     </div>
     <div class="f-col">
       <h4>Contacto</h4>
-      <a href="https://wa.me/528180391792" target="_blank"><i class="fab fa-whatsapp" style="margin-right:6px;"></i>WhatsApp</a>
+      <a href="https://wa.me/528180391792?text=Hola%2C%20quiero%20agendar%20una%20visita%20al%20Showroom" target="_blank"><i class="fab fa-whatsapp" style="margin-right:6px;"></i>WhatsApp</a>
       <a href="tel:+528180391792"><i class="fas fa-phone" style="margin-right:6px;"></i>81 8039 1792</a>
       <a href="#ubicacion"><i class="fas fa-map-marker-alt" style="margin-right:6px;"></i>Palmas 810, CDMX</a>
     </div>
@@ -892,7 +894,7 @@ footer{background:var(--negro);padding:48px 48px 24px;border-top:1px solid rgba(
   <div class="footer-bottom">
     <p>&copy; 2025 TPS Armoring. Todos los derechos reservados.</p>
     <div class="socials">
-      <a href="https://www.instagram.com/tpsarmoringshowroom/"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.instagram.com/erikajimenez.armoring/"><i class="fab fa-instagram"></i></a>
       <a href="https://www.facebook.com/tps.armoring"><i class="fab fa-facebook-f"></i></a>
       <a href="https://www.linkedin.com/company/tps-armoring/posts/?feedView=all" target="_blank"><i class="fab fa-linkedin-in"></i></a>
       <a href="https://x.com/TPS_Oficial" target="_blank"><i class="fab fa-x-twitter"></i></a>
@@ -902,7 +904,7 @@ footer{background:var(--negro);padding:48px 48px 24px;border-top:1px solid rgba(
 </footer>
 
 <!-- WA FLOAT -->
-<a href="https://wa.me/528180391792" class="wa-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+<a href="https://wa.me/528180391792?text=Hola%2C%20quiero%20agendar%20una%20visita%20al%20Showroom" class="wa-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
 <!-- ADMIN FAB -->
 <button class="admin-fab" onclick="abrirAdmin()" title="Panel de Administraci&#243;n">
@@ -1036,70 +1038,70 @@ const INVENTARIO = [
     img:'img/CADILLAC-ESCALADE-BLANCA-6188/IMG_9569.jpg',
     imgs:['img/CADILLAC-ESCALADE-BLANCA-6188/IMG_9569.jpg','img/CADILLAC-ESCALADE-BLANCA-6188/IMG_9573.jpg','img/CADILLAC-ESCALADE-BLANCA-6188/IMG_9575.jpg','img/CADILLAC-ESCALADE-BLANCA-6188/IMG_9580.jpg','img/CADILLAC-ESCALADE-BLANCA-6188/IMG_9584.jpg','img/CADILLAC-ESCALADE-BLANCA-6188/IMG_9592.jpg','img/CADILLAC-ESCALADE-BLANCA-6188/IMG_9596.jpg','img/CADILLAC-ESCALADE-BLANCA-6188/IMG_9597.jpg','img/CADILLAC-ESCALADE-BLANCA-6188/IMG_9604.jpg','img/CADILLAC-ESCALADE-BLANCA-6188/IMG_9609.jpg','img/CADILLAC-ESCALADE-BLANCA-6188/IMG_9613.jpg','img/CADILLAC-ESCALADE-BLANCA-6188/IMG_9628.jpg','img/CADILLAC-ESCALADE-BLANCA-6188/IMG_9630.jpg','img/CADILLAC-ESCALADE-BLANCA-6188/IMG_9636.jpg','img/CADILLAC-ESCALADE-BLANCA-6188/IMG_9642.jpg','img/CADILLAC-ESCALADE-BLANCA-6188/IMG_9646.jpg'],
     titulo:"Cadillac Escalade",cat:"blindado",anio:"2023",km:"18,500 km",badge:"Blindado",
-    specs:[{l:"Color",v:"Blanco"},{l:"Placas",v:"6188"},{l:"Nivel Blindaje",v:"Nivel IV"},{l:"Tracción",v:"AWD"},{l:"Motor",v:"6.2L V8"},{l:"Transmisión",v:"Automática 10 vel"}],
+    specs:[{l:"Color",v:"Blanco"},{l:"Estado",v:"Seminuevo"},{l:"Nivel Blindaje",v:"Nivel IV"},{l:"Tracción",v:"AWD"},{l:"Motor",v:"6.2L V8"},{l:"Transmisión",v:"Automática 10 vel"}],
     wa:"Hola, me interesa la Cadillac Escalade Blanca (6188) del Showroom TPS Armoring Palmas 810"
   },
   {
     img:'img/ESCALADE-BLANCA-3914/IMG_26632.jpg',
     imgs:['img/ESCALADE-BLANCA-3914/IMG_26632.jpg','img/ESCALADE-BLANCA-3914/IMG_26692.jpg','img/ESCALADE-BLANCA-3914/IMG_26702.jpg','img/ESCALADE-BLANCA-3914/IMG_26712.jpg','img/ESCALADE-BLANCA-3914/IMG_26752.jpg','img/ESCALADE-BLANCA-3914/IMG_26772.jpg','img/ESCALADE-BLANCA-3914/IMG_26812.JPG','img/ESCALADE-BLANCA-3914/IMG_26852.jpg','img/ESCALADE-BLANCA-3914/IMG_7834.jpg','img/ESCALADE-BLANCA-3914/IMG_7835.jpg','img/ESCALADE-BLANCA-3914/IMG_7836.jpg','img/ESCALADE-BLANCA-3914/IMG_7837.jpg','img/ESCALADE-BLANCA-3914/IMG_7838.jpg','img/ESCALADE-BLANCA-3914/IMG_7839.JPG','img/ESCALADE-BLANCA-3914/IMG_7840.jpg','img/ESCALADE-BLANCA-3914/IMG_7841.jpg','img/ESCALADE-BLANCA-3914/IMG_7842.JPG','img/ESCALADE-BLANCA-3914/IMG_7843.jpg','img/ESCALADE-BLANCA-3914/IMG_7844.JPG','img/ESCALADE-BLANCA-3914/IMG_7845.jpg','img/ESCALADE-BLANCA-3914/IMG_7846.jpg','img/ESCALADE-BLANCA-3914/IMG_7847.jpg','img/ESCALADE-BLANCA-3914/IMG_7848.jpg','img/ESCALADE-BLANCA-3914/IMG_7849.jpg','img/ESCALADE-BLANCA-3914/IMG_7850.jpg','img/ESCALADE-BLANCA-3914/IMG_7851.jpg'],
     titulo:"Cadillac Escalade",cat:"blindado",anio:"2022",km:"32,100 km",badge:"Blindado",
-    specs:[{l:"Color",v:"Blanco"},{l:"Placas",v:"3914"},{l:"Nivel Blindaje",v:"Nivel IV"},{l:"Tracción",v:"AWD"},{l:"Motor",v:"6.2L V8"},{l:"Transmisión",v:"Automática 10 vel"}],
+    specs:[{l:"Color",v:"Blanco"},{l:"Estado",v:"Seminuevo"},{l:"Nivel Blindaje",v:"Nivel IV"},{l:"Tracción",v:"AWD"},{l:"Motor",v:"6.2L V8"},{l:"Transmisión",v:"Automática 10 vel"}],
     wa:"Hola, me interesa la Cadillac Escalade Blanca (3914) del Showroom TPS Armoring Palmas 810"
   },
   {
     img:'img/SUBURBAN-NEGRA-2724/IMG_9833.jpg',
     imgs:['img/SUBURBAN-NEGRA-2724/IMG_9833.jpg','img/SUBURBAN-NEGRA-2724/IMG_9835.jpg','img/SUBURBAN-NEGRA-2724/IMG_9837.jpg','img/SUBURBAN-NEGRA-2724/IMG_9839.jpg','img/SUBURBAN-NEGRA-2724/IMG_9841.jpg','img/SUBURBAN-NEGRA-2724/IMG_9845.jpg','img/SUBURBAN-NEGRA-2724/IMG_9849.jpg','img/SUBURBAN-NEGRA-2724/IMG_9851.jpg','img/SUBURBAN-NEGRA-2724/IMG_9856.jpg','img/SUBURBAN-NEGRA-2724/IMG_9859.jpg','img/SUBURBAN-NEGRA-2724/IMG_9860.jpg','img/SUBURBAN-NEGRA-2724/IMG_9862.jpg'],
     titulo:"Chevrolet Suburban",cat:"blindado",anio:"2023",km:"21,800 km",badge:"Blindado",
-    specs:[{l:"Color",v:"Negra"},{l:"Placas",v:"2724"},{l:"Nivel Blindaje",v:"Nivel III+"},{l:"Tracción",v:"4x4"},{l:"Motor",v:"5.3L V8 EcoTec3"},{l:"Transmisión",v:"Automática 10 vel"}],
+    specs:[{l:"Color",v:"Negra"},{l:"Estado",v:"Seminuevo"},{l:"Nivel Blindaje",v:"Nivel III+"},{l:"Tracción",v:"4x4"},{l:"Motor",v:"5.3L V8 EcoTec3"},{l:"Transmisión",v:"Automática 10 vel"}],
     wa:"Hola, me interesa la Chevrolet Suburban Negra (2724) del Showroom TPS Armoring Palmas 810"
   },
   {
     img:'img/SUBURBAN-NEGRA-7487/IMG_9713.jpg',
     imgs:['img/SUBURBAN-NEGRA-7487/IMG_5019.jpg','img/SUBURBAN-NEGRA-7487/IMG_5020.jpg','img/SUBURBAN-NEGRA-7487/IMG_5039.jpg','img/SUBURBAN-NEGRA-7487/IMG_9713.jpg','img/SUBURBAN-NEGRA-7487/IMG_9716.jpg','img/SUBURBAN-NEGRA-7487/IMG_9719.jpg','img/SUBURBAN-NEGRA-7487/IMG_9721.jpg','img/SUBURBAN-NEGRA-7487/IMG_9726.jpg','img/SUBURBAN-NEGRA-7487/IMG_9727.jpg'],
     titulo:"Chevrolet Suburban",cat:"blindado",anio:"2022",km:"45,200 km",badge:"Blindado",
-    specs:[{l:"Color",v:"Negra"},{l:"Placas",v:"7487"},{l:"Nivel Blindaje",v:"Nivel III+"},{l:"Tracción",v:"4x4"},{l:"Motor",v:"5.3L V8 EcoTec3"},{l:"Transmisión",v:"Automática 10 vel"}],
+    specs:[{l:"Color",v:"Negra"},{l:"Estado",v:"Seminuevo"},{l:"Nivel Blindaje",v:"Nivel III+"},{l:"Tracción",v:"4x4"},{l:"Motor",v:"5.3L V8 EcoTec3"},{l:"Transmisión",v:"Automática 10 vel"}],
     wa:"Hola, me interesa la Chevrolet Suburban Negra (7487) del Showroom TPS Armoring Palmas 810"
   },
   {
     img:'img/GMC-DENALI-BLANCA-9800/IMG_9703.jpg',
     imgs:['img/GMC-DENALI-BLANCA-9800/IMG_4982.jpg','img/GMC-DENALI-BLANCA-9800/IMG_4983.jpg','img/GMC-DENALI-BLANCA-9800/IMG_4984.jpg','img/GMC-DENALI-BLANCA-9800/IMG_5014.jpg','img/GMC-DENALI-BLANCA-9800/IMG_9703.jpg','img/GMC-DENALI-BLANCA-9800/IMG_9705.jpg','img/GMC-DENALI-BLANCA-9800/IMG_9706.jpg','img/GMC-DENALI-BLANCA-9800/IMG_97082.jpg','img/GMC-DENALI-BLANCA-9800/IMG_9709.jpg'],
     titulo:"GMC Denali",cat:"blindado",anio:"2023",km:"14,300 km",badge:"Blindado",
-    specs:[{l:"Color",v:"Blanca"},{l:"Placas",v:"9800"},{l:"Nivel Blindaje",v:"Nivel IV"},{l:"Tracción",v:"4x4"},{l:"Motor",v:"6.2L V8 EcoTec3"},{l:"Transmisión",v:"Automática 10 vel"}],
+    specs:[{l:"Color",v:"Blanca"},{l:"Estado",v:"Seminuevo"},{l:"Nivel Blindaje",v:"Nivel IV"},{l:"Tracción",v:"4x4"},{l:"Motor",v:"6.2L V8 EcoTec3"},{l:"Transmisión",v:"Automática 10 vel"}],
     wa:"Hola, me interesa la GMC Denali Blanca (9800) del Showroom TPS Armoring Palmas 810"
   },
   {
-    img:'img/YUKON-BLANCA-6428/IMG_7908.jpg',
+    img:'img/YUKON-BLANCA-6428/IMG_7909.jpg',
     imgs:['img/YUKON-BLANCA-6428/IMG_7897.jpg','img/YUKON-BLANCA-6428/IMG_7898.jpg','img/YUKON-BLANCA-6428/IMG_7899.jpg','img/YUKON-BLANCA-6428/IMG_7900.jpg','img/YUKON-BLANCA-6428/IMG_7901.jpg','img/YUKON-BLANCA-6428/IMG_7902.jpg','img/YUKON-BLANCA-6428/IMG_7904.jpg','img/YUKON-BLANCA-6428/IMG_7905.jpg','img/YUKON-BLANCA-6428/IMG_7906.jpg','img/YUKON-BLANCA-6428/IMG_7907.JPG','img/YUKON-BLANCA-6428/IMG_7908.jpg','img/YUKON-BLANCA-6428/IMG_7909.jpg','img/YUKON-BLANCA-6428/IMG_7910.jpg','img/YUKON-BLANCA-6428/IMG_7912.jpg'],
     titulo:"GMC Yukon",cat:"blindado",anio:"2022",km:"28,700 km",badge:"Blindado",
-    specs:[{l:"Color",v:"Blanca"},{l:"Placas",v:"6428"},{l:"Nivel Blindaje",v:"Nivel III+"},{l:"Tracción",v:"4x4"},{l:"Motor",v:"5.3L V8 EcoTec3"},{l:"Transmisión",v:"Automática 10 vel"}],
+    specs:[{l:"Color",v:"Blanca"},{l:"Estado",v:"Seminuevo"},{l:"Nivel Blindaje",v:"Nivel III+"},{l:"Tracción",v:"4x4"},{l:"Motor",v:"5.3L V8 EcoTec3"},{l:"Transmisión",v:"Automática 10 vel"}],
     wa:"Hola, me interesa la GMC Yukon Blanca (6428) del Showroom TPS Armoring Palmas 810"
   },
   {
-    img:'img/HIGHT-COUNTRY-GRIS-9516/IMG_9436.jpg',
+    img:'img/HIGHT-COUNTRY-GRIS-9516/IMG_9455.jpg',
     imgs:['img/HIGHT-COUNTRY-GRIS-9516/IMG_9436.jpg','img/HIGHT-COUNTRY-GRIS-9516/IMG_9437.jpg','img/HIGHT-COUNTRY-GRIS-9516/IMG_9438.jpg','img/HIGHT-COUNTRY-GRIS-9516/IMG_9455.jpg','img/HIGHT-COUNTRY-GRIS-9516/IMG_9456.jpg','img/HIGHT-COUNTRY-GRIS-9516/IMG_9459.jpg','img/HIGHT-COUNTRY-GRIS-9516/IMG_9460.jpg','img/HIGHT-COUNTRY-GRIS-9516/IMG_9465.jpg','img/HIGHT-COUNTRY-GRIS-9516/IMG_9469.jpg','img/HIGHT-COUNTRY-GRIS-9516/IMG_9470.jpg','img/HIGHT-COUNTRY-GRIS-9516/IMG_9471.jpg','img/HIGHT-COUNTRY-GRIS-9516/IMG_9474.jpg','img/HIGHT-COUNTRY-GRIS-9516/IMG_9478.jpg','img/HIGHT-COUNTRY-GRIS-9516/IMG_9484.jpg','img/HIGHT-COUNTRY-GRIS-9516/IMG_9485.jpg','img/HIGHT-COUNTRY-GRIS-9516/IMG_9486.jpg','img/HIGHT-COUNTRY-GRIS-9516/IMG_9487.jpg','img/HIGHT-COUNTRY-GRIS-9516/IMG_9488.jpg','img/HIGHT-COUNTRY-GRIS-9516/IMG_9495.jpg','img/HIGHT-COUNTRY-GRIS-9516/IMG_9496.jpg','img/HIGHT-COUNTRY-GRIS-9516/IMG_9504.jpg','img/HIGHT-COUNTRY-GRIS-9516/IMG_9542.jpg','img/HIGHT-COUNTRY-GRIS-9516/IMG_9546.jpg','img/HIGHT-COUNTRY-GRIS-9516/IMG_9550.jpg','img/HIGHT-COUNTRY-GRIS-9516/IMG_9552.jpg','img/HIGHT-COUNTRY-GRIS-9516/IMG_9596.jpg'],
     titulo:"Chevrolet Silverado High Country",cat:"blindado",anio:"2023",km:"11,900 km",badge:"Blindado",
-    specs:[{l:"Color",v:"Gris"},{l:"Placas",v:"9516"},{l:"Nivel Blindaje",v:"Nivel III+"},{l:"Tracción",v:"4x4"},{l:"Motor",v:"6.2L V8 EcoTec3"},{l:"Transmisión",v:"Automática 10 vel"}],
+    specs:[{l:"Color",v:"Gris"},{l:"Estado",v:"Seminuevo"},{l:"Nivel Blindaje",v:"Nivel III+"},{l:"Tracción",v:"4x4"},{l:"Motor",v:"6.2L V8 EcoTec3"},{l:"Transmisión",v:"Automática 10 vel"}],
     wa:"Hola, me interesa la Chevrolet Silverado High Country Gris (9516) del Showroom TPS Armoring Palmas 810"
   },
   {
     img:'img/CHEROKEE-BLANCA-1393/IMG_7875.jpg',
     imgs:['img/CHEROKEE-BLANCA-1393/IMG_7875.jpg','img/CHEROKEE-BLANCA-1393/IMG_7876.jpg','img/CHEROKEE-BLANCA-1393/IMG_7878.jpg','img/CHEROKEE-BLANCA-1393/IMG_7879.jpg','img/CHEROKEE-BLANCA-1393/IMG_7880.jpg','img/CHEROKEE-BLANCA-1393/IMG_7881.jpg','img/CHEROKEE-BLANCA-1393/IMG_7883.jpg','img/CHEROKEE-BLANCA-1393/IMG_7885.jpg','img/CHEROKEE-BLANCA-1393/IMG_7886.JPG','img/CHEROKEE-BLANCA-1393/IMG_7887.jpg','img/CHEROKEE-BLANCA-1393/IMG_7888.jpg','img/CHEROKEE-BLANCA-1393/IMG_7889.JPG','img/CHEROKEE-BLANCA-1393/IMG_7891.jpg','img/CHEROKEE-BLANCA-1393/IMG_7892.jpg','img/CHEROKEE-BLANCA-1393/IMG_7893.jpg','img/CHEROKEE-BLANCA-1393/IMG_7894.jpg'],
     titulo:"Jeep Grand Cherokee",cat:"blindado",anio:"2022",km:"37,400 km",badge:"Blindado",
-    specs:[{l:"Color",v:"Blanca"},{l:"Placas",v:"1393"},{l:"Nivel Blindaje",v:"Nivel III+"},{l:"Tracción",v:"4x4"},{l:"Motor",v:"3.6L V6 Pentastar"},{l:"Transmisión",v:"Automática 8 vel"}],
+    specs:[{l:"Color",v:"Blanca"},{l:"Estado",v:"Seminuevo"},{l:"Nivel Blindaje",v:"Nivel III+"},{l:"Tracción",v:"4x4"},{l:"Motor",v:"3.6L V6 Pentastar"},{l:"Transmisión",v:"Automática 8 vel"}],
     wa:"Hola, me interesa la Jeep Grand Cherokee Blanca (1393) del Showroom TPS Armoring Palmas 810"
   },
   {
     img:'img/CHEROKEE-NEGRA-7364/IMG_7852.jpg',
     imgs:['img/CHEROKEE-NEGRA-7364/IMG_7852.jpg','img/CHEROKEE-NEGRA-7364/IMG_7853.jpg','img/CHEROKEE-NEGRA-7364/IMG_7854.jpg','img/CHEROKEE-NEGRA-7364/IMG_7855.jpg','img/CHEROKEE-NEGRA-7364/IMG_7856.jpg','img/CHEROKEE-NEGRA-7364/IMG_7857.jpg','img/CHEROKEE-NEGRA-7364/IMG_7858.jpg','img/CHEROKEE-NEGRA-7364/IMG_7859.jpg','img/CHEROKEE-NEGRA-7364/IMG_7860.jpg','img/CHEROKEE-NEGRA-7364/IMG_7862.jpg','img/CHEROKEE-NEGRA-7364/IMG_7868.jpg','img/CHEROKEE-NEGRA-7364/IMG_7869.jpg','img/CHEROKEE-NEGRA-7364/IMG_7870.jpg','img/CHEROKEE-NEGRA-7364/IMG_7872.jpg','img/CHEROKEE-NEGRA-7364/IMG_7873.jpg','img/CHEROKEE-NEGRA-7364/IMG_7874.jpg'],
     titulo:"Jeep Grand Cherokee",cat:"blindado",anio:"2023",km:"19,600 km",badge:"Blindado",
-    specs:[{l:"Color",v:"Negra"},{l:"Placas",v:"7364"},{l:"Nivel Blindaje",v:"Nivel IV"},{l:"Tracción",v:"4x4"},{l:"Motor",v:"3.6L V6 Pentastar"},{l:"Transmisión",v:"Automática 8 vel"}],
+    specs:[{l:"Color",v:"Negra"},{l:"Estado",v:"Seminuevo"},{l:"Nivel Blindaje",v:"Nivel IV"},{l:"Tracción",v:"4x4"},{l:"Motor",v:"3.6L V6 Pentastar"},{l:"Transmisión",v:"Automática 8 vel"}],
     wa:"Hola, me interesa la Jeep Grand Cherokee Negra (7364) del Showroom TPS Armoring Palmas 810"
   },
   {
     img:'img/GRANDCHEROKKE-GRIS-5358/IMG_9671.jpg',
     imgs:['img/GRANDCHEROKKE-GRIS-5358/IMG_4979.jpg','img/GRANDCHEROKKE-GRIS-5358/IMG_4980.jpg','img/GRANDCHEROKKE-GRIS-5358/IMG_9671.jpg','img/GRANDCHEROKKE-GRIS-5358/IMG_96792.jpg','img/GRANDCHEROKKE-GRIS-5358/IMG_96812.jpg','img/GRANDCHEROKKE-GRIS-5358/IMG_96822.jpg','img/GRANDCHEROKKE-GRIS-5358/IMG_9685.jpg','img/GRANDCHEROKKE-GRIS-5358/IMG_9691.jpg','img/GRANDCHEROKKE-GRIS-5358/IMG_9693.jpg','img/GRANDCHEROKKE-GRIS-5358/IMG_9694.jpg','img/GRANDCHEROKKE-GRIS-5358/IMG_9697.jpg','img/GRANDCHEROKKE-GRIS-5358/IMG_9698.jpg','img/GRANDCHEROKKE-GRIS-5358/IMG_9699.jpg'],
     titulo:"Jeep Grand Cherokee",cat:"blindado",anio:"2021",km:"52,300 km",badge:"Blindado",
-    specs:[{l:"Color",v:"Gris"},{l:"Placas",v:"5358"},{l:"Nivel Blindaje",v:"Nivel III+"},{l:"Tracción",v:"4x4"},{l:"Motor",v:"3.6L V6 Pentastar"},{l:"Transmisión",v:"Automática 8 vel"}],
+    specs:[{l:"Color",v:"Gris"},{l:"Estado",v:"Seminuevo"},{l:"Nivel Blindaje",v:"Nivel III+"},{l:"Tracción",v:"4x4"},{l:"Motor",v:"3.6L V6 Pentastar"},{l:"Transmisión",v:"Automática 8 vel"}],
     wa:"Hola, me interesa la Jeep Grand Cherokee Gris (5358) del Showroom TPS Armoring Palmas 810"
   },
   {
