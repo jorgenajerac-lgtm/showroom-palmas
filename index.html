@@ -24,7 +24,7 @@ body{font-family:'Open Sans',sans-serif;background:#050505;color:var(--texto);ov
 
 /* HEADER */
 header{
-  background:rgba(0,0,0,0.96);
+  background:rgba(0,0,0,0.96);A
   display:flex;align-items:center;justify-content:space-between;
   padding:0 48px;height:92px;
   position:sticky;top:0;z-index:1000;
@@ -1290,8 +1290,14 @@ function zoomNavegar(dir) {
 }
 // Swipe táctil en zoom
 let zSwipeX = 0;
-document.getElementById("zoom-overlay").addEventListener("touchstart", e => { zSwipeX = e.touches[0].clientX; }, {passive:true});
+let zPinch = false;
+document.getElementById("zoom-overlay").addEventListener("touchstart", e => {
+  if(e.touches.length > 1){ zPinch = true; return; }
+  zPinch = false;
+  zSwipeX = e.touches[0].clientX;
+}, {passive:true});
 document.getElementById("zoom-overlay").addEventListener("touchend", e => {
+  if(zPinch){ zPinch = false; return; }
   const diff = zSwipeX - e.changedTouches[0].clientX;
   if(Math.abs(diff) > 40) zoomNavegar(diff > 0 ? 1 : -1);
 }, {passive:true});
