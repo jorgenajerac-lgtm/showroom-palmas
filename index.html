@@ -24,7 +24,7 @@ body{font-family:'Open Sans',sans-serif;background:#050505;color:var(--texto);ov
 
 /* HEADER */
 header{
-  background:rgba(0,0,0,0.96);A
+  background:rgba(0,0,0,0.96);
   display:flex;align-items:center;justify-content:space-between;
   padding:0 48px;height:92px;
   position:sticky;top:0;z-index:1000;
@@ -33,7 +33,7 @@ header{
 .logo-wrap{display:flex;align-items:center;}
 .logo-wrap img{height:76px;width:auto;max-width:300px;display:block;opacity:0;transform:translateY(-14px) scale(0.96);animation:logoIntro 0.9s ease forwards;}
 @keyframes logoIntro{to{opacity:1;transform:translateY(0) scale(1);}}
-nav{display:flex;align-items:center;gap:26px;margin-left:auto;padding-left:80px;}
+nav{display:flex;align-items:center;gap:26px;margin-left:auto;}
 nav a{color:#d8d2c4;text-decoration:none;font-family:'Montserrat',sans-serif;font-size:10px;font-weight:500;letter-spacing:2.4px;text-transform:uppercase;transition:color 0.2s;}
 nav a:hover{color:#fff;}
 nav a.active{color:#fff;border-bottom:1px solid var(--naranja);padding-bottom:2px;}
@@ -92,6 +92,10 @@ nav a.active{color:#fff;border-bottom:1px solid var(--naranja);padding-bottom:2p
 /* GRID CARDS */
 .carousel-wrap{position:relative;}
 .carousel-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.3);color:#555;width:36px;height:36px;border-radius:50%;font-size:14px;cursor:pointer;z-index:10;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(4px);transition:all 0.2s;}
+.carousel-dots{display:none;justify-content:center;gap:8px;margin-top:16px;}
+.carousel-dot{width:8px;height:8px;border-radius:50%;background:#ddd;border:none;cursor:pointer;padding:0;transition:background 0.2s;}
+.carousel-dot.active{background:var(--naranja);}
+@media(max-width:768px){.carousel-dots{display:flex;}}
 .carousel-btn:hover{background:var(--naranja);color:#fff;border-color:var(--naranja);}
 .carousel-btn.prev{left:-18px;}
 .carousel-btn.next{right:-18px;}
@@ -800,6 +804,7 @@ footer{background:var(--negro);padding:48px 48px 24px;border-top:1px solid rgba(
     <button class="carousel-btn prev" id="carousel-prev" onclick="moverCarrusel(-1)"><i class="fas fa-chevron-left"></i></button>
     <div class="cars-grid" id="cars-grid"></div>
     <button class="carousel-btn next" id="carousel-next" onclick="moverCarrusel(1)"><i class="fas fa-chevron-right"></i></button>
+    <div class="carousel-dots" id="carousel-dots"></div>
   </div>
   <div style="text-align:center;margin-top:40px;">
     <a href="inventario.html" class="btn-ver-todo"><i class="fas fa-th-large"></i> Ver Inventario Completo</a>
@@ -1156,6 +1161,10 @@ function renderCards() {
 
   document.getElementById("carousel-prev").style.display = paginaActual > 0 ? "flex" : "none";
   document.getElementById("carousel-next").style.display = paginaActual < totalPags - 1 ? "flex" : "none";
+  const dotsEl = document.getElementById("carousel-dots");
+  dotsEl.innerHTML = Array.from({length:totalPags},(_,i) =>
+    `<button class="carousel-dot${i===paginaActual?' active':''}" onclick="irPagina(${i})"></button>`
+  ).join("");
 
   grid.innerHTML = pagina.map((c) => {
     const realIdx = INVENTARIO.indexOf(c);
@@ -1188,6 +1197,10 @@ function moverCarrusel(dir) {
   const filtered = INVENTARIO.filter(c => !c._oculto && (catActual === "todos" || c.cat === catActual));
   const totalPags = Math.ceil(filtered.length / getPorPagina());
   paginaActual = Math.max(0, Math.min(paginaActual + dir, totalPags - 1));
+  renderCards();
+}
+function irPagina(i) {
+  paginaActual = i;
   renderCards();
 }
 
