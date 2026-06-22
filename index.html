@@ -92,7 +92,7 @@ nav a.active{color:#fff;border-bottom:1px solid var(--naranja);padding-bottom:2p
 /* GRID CARDS */
 .carousel-wrap{position:relative;}
 .carousel-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.3);color:#555;width:36px;height:36px;border-radius:50%;font-size:14px;cursor:pointer;z-index:10;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(4px);transition:all 0.2s;}
-.carousel-dots{display:none;justify-content:center;gap:8px;margin-top:16px;}
+.carousel-dots{display:flex;justify-content:center;gap:8px;margin-top:16px;}
 .carousel-dot{width:8px;height:8px;border-radius:50%;background:#ddd;border:none;cursor:pointer;padding:0;transition:background 0.2s;}
 .carousel-dot.active{background:var(--naranja);}
 @media(max-width:768px){.carousel-dots{display:flex;}}
@@ -763,7 +763,7 @@ footer{background:var(--negro);padding:48px 48px 24px;border-top:1px solid rgba(
 <!-- HERO -->
 <section class="hero" id="inicio">
   <div class="hero-cars-bg">
-    <video autoplay muted loop playsinline preload="auto" id="hero-video">
+    <video autoplay muted loop playsinline id="hero-video" poster="img/IMG_9440.jpg">
       <source src="img/showroom.mp4" type="video/mp4">
     </video>
   </div>
@@ -1473,11 +1473,12 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 });
 
 // Init
-const heroVid = document.getElementById("hero-video");
-heroVid.playbackRate = 0.7;
-heroVid.play().catch(()=>{});
-document.addEventListener('touchstart',()=>{heroVid.play().catch(()=>{});},{once:true,passive:true});
-document.addEventListener('scroll',()=>{heroVid.play().catch(()=>{});},{once:true,passive:true});
+document.addEventListener("DOMContentLoaded", () => {
+  const video = document.getElementById("hero-video");
+  video.muted = true;
+  video.playbackRate = 0.7;
+  video.play().catch(err => console.log(err));
+});
 document.getElementById("strip-img").src = "img/Audi-.jpeg";
 renderCards();
 // Atajo secreto Ctrl+Shift+A para mostrar botón admin
