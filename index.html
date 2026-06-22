@@ -763,7 +763,7 @@ footer{background:var(--negro);padding:48px 48px 24px;border-top:1px solid rgba(
 <!-- HERO -->
 <section class="hero" id="inicio">
   <div class="hero-cars-bg">
-    <video autoplay muted loop playsinline id="hero-video">
+    <video autoplay muted loop playsinline preload="auto" id="hero-video">
       <source src="img/showroom.mp4" type="video/mp4">
     </video>
   </div>
@@ -1434,6 +1434,15 @@ function agregarAuto() {
   alert("Unidad \u00201C" + titulo + "\u00201D agregada al inventario.");
 }
 
+// Swipe táctil en galería del modal
+let mgSwipeX = 0;
+const modalGal = document.querySelector('.modal-gallery-main');
+modalGal.addEventListener('touchstart', e => { mgSwipeX = e.touches[0].clientX; }, {passive:true});
+modalGal.addEventListener('touchend', e => {
+  const diff = mgSwipeX - e.changedTouches[0].clientX;
+  if(Math.abs(diff) > 40) cambiarFotoIdx(diff > 0 ? 1 : -1);
+}, {passive:true});
+
 // Swipe táctil en carrusel
 let swipeStartX = 0;
 const cGrid = document.getElementById('cars-grid');
@@ -1467,6 +1476,8 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 const heroVid = document.getElementById("hero-video");
 heroVid.playbackRate = 0.7;
 heroVid.play().catch(()=>{});
+document.addEventListener('touchstart',()=>{heroVid.play().catch(()=>{});},{once:true,passive:true});
+document.addEventListener('scroll',()=>{heroVid.play().catch(()=>{});},{once:true,passive:true});
 document.getElementById("strip-img").src = "img/Audi-.jpeg";
 renderCards();
 // Atajo secreto Ctrl+Shift+A para mostrar botón admin
