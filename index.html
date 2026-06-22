@@ -1467,10 +1467,6 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 const heroVid = document.getElementById("hero-video");
 heroVid.playbackRate = 0.7;
 heroVid.play().catch(()=>{});
-document.addEventListener('touchstart', function initVid(){
-  heroVid.play().catch(()=>{});
-  document.removeEventListener('touchstart', initVid);
-}, {once:true});
 document.getElementById("strip-img").src = "img/Audi-.jpeg";
 renderCards();
 // Atajo secreto Ctrl+Shift+A para mostrar botón admin
