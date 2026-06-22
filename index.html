@@ -51,8 +51,10 @@ nav a.active{color:#fff;border-bottom:1px solid var(--naranja);padding-bottom:2p
   background:#000;
   display:flex;align-items:flex-start;padding:40px 80px;overflow:hidden;
 }
-.hero-cars-bg{position:absolute;inset:0;overflow:hidden;}
-.hero-cars-bg video{width:100%;height:110%;object-fit:cover;filter:brightness(0.45);object-position:center top;}
+.hero-cars-bg{position:absolute;inset:0;overflow:hidden;background:url('img/IMG_9440.jpg') center/cover no-repeat;filter:brightness(0.45);}
+.hero-cars-bg video{width:100%;height:110%;object-fit:cover;object-position:center top;}
+.hero-cars-bg video.playing{opacity:1;}
+.hero-cars-bg video.not-playing{opacity:0;}
 .hero-content{position:relative;z-index:2;max-width:580px;}
 .hero-badge{display:inline-flex;align-items:center;gap:8px;background:transparent;border:0;border-left:1px solid #D66A11;color:#D66A11!important;padding:4px 0 4px 14px;border-radius:0;font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:20px;}
 .hero h1{font-family:'Bebas Neue',sans-serif;color:#fff;font-size:108px;font-weight:700;line-height:1.0;text-transform:uppercase;margin-bottom:8px;}
@@ -763,7 +765,7 @@ footer{background:var(--negro);padding:48px 48px 24px;border-top:1px solid rgba(
 <!-- HERO -->
 <section class="hero" id="inicio">
   <div class="hero-cars-bg">
-    <video autoplay muted loop playsinline id="hero-video" poster="img/IMG_9440.jpg">
+    <video autoplay muted loop playsinline id="hero-video">
       <source src="img/showroom.mp4" type="video/mp4">
     </video>
   </div>
@@ -1477,6 +1479,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const video = document.getElementById("hero-video");
   video.muted = true;
   video.playbackRate = 0.7;
+  video.classList.add('not-playing');
+  video.addEventListener('playing', () => { video.classList.remove('not-playing'); video.classList.add('playing'); });
   video.play().catch(err => console.log(err));
 });
 document.getElementById("strip-img").src = "img/Audi-.jpeg";
